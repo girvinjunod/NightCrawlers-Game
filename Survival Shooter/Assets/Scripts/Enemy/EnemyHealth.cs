@@ -3,18 +3,19 @@
 public class EnemyHealth : MonoBehaviour
 {
     public int startingHealth = 100;
+    public bool isSuicide = false;
     public int currentHealth;
     public float sinkSpeed = 2.5f;
     public int scoreValue = 10;
     public AudioClip deathClip;
 
 
+    protected bool isSinking;
     Animator anim;
     AudioSource enemyAudio;
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
     bool isDead;
-    bool isSinking;
 
 
     void Awake ()
@@ -56,7 +57,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    void Death ()
+    public void Death ()
     {
         isDead = true;
 
@@ -69,12 +70,15 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    public void StartSinking ()
+    public virtual void StartSinking ()
     {
         GetComponent<UnityEngine.AI.NavMeshAgent> ().enabled = false;
         GetComponent<Rigidbody> ().isKinematic = true;
         isSinking = true;
-        ScoreManager.score += scoreValue;
+        if(!isSuicide)
+        {
+            ScoreManager.score += scoreValue;
+        }
         Destroy (gameObject, 2f);
     }
 }
