@@ -25,7 +25,7 @@ public class BomberAttack : EnemyAttack
 
             base.enemyHealth.currentHealth = 0;
             base.enemyHealth.Death();
-            base.enemyHealth.isSuicide = true;
+            base.enemyHealth.setSuicide();
         }
     }
 }

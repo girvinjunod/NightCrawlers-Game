@@ -3,7 +3,6 @@
 public class EnemyHealth : MonoBehaviour
 {
     public int startingHealth = 100;
-    public bool isSuicide = false;
     public int currentHealth;
     public float sinkSpeed = 2.5f;
     public int scoreValue = 10;
@@ -11,6 +10,7 @@ public class EnemyHealth : MonoBehaviour
 
 
     protected bool isSinking;
+    protected bool isSuicide = false;
     Animator anim;
     AudioSource enemyAudio;
     ParticleSystem hitParticles;
@@ -69,14 +69,20 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio.Play ();
     }
 
+    public void setSuicide()
+    {
+        isSuicide = true;
+    }
 
-    public virtual void StartSinking ()
+
+    public void StartSinking ()
     {
         GetComponent<UnityEngine.AI.NavMeshAgent> ().enabled = false;
         GetComponent<Rigidbody> ().isKinematic = true;
         isSinking = true;
         if(!isSuicide)
         {
+            Debug.Log("MSK");
             ScoreManager.score += scoreValue;
         }
         Destroy (gameObject, 2f);
