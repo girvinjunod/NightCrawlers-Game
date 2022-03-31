@@ -9,7 +9,14 @@ public class MainMenu : MonoBehaviour
     {
         // PlayerPrefs.DeleteKey("PlayerName");
         var savedName = PlayerPrefs.GetString("PlayerName", "Player");
-        playername.text = savedName;
+        if (savedName.Length - 1 > 0)
+        {
+            playername.text = savedName;
+        }
+        else
+        {
+            playername.text = "Player";
+        }
         // Debug.Log(savedName);
     }
     public void QuitGame()

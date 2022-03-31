@@ -4604,8 +4604,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 9}
-  m_SizeDelta: {x: 377.0883, y: 71.0289}
+  m_AnchoredPosition: {x: -0.6312, y: 5.2128}
+  m_SizeDelta: {x: 375.826, y: 78.6032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1234399448
 MonoBehaviour:
@@ -4755,7 +4755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6ffdd0a557e6f49830ead3870ba6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playernameUI: {fileID: 1946019420}
+  playernameUI: {fileID: 1234399448}
   playernameMenu: {fileID: 32802913}
 --- !u!1 &1293091987
 GameObject:
@@ -7371,7 +7371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u200B"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 46266f38bcbb19847a196e9582a4aea5, type: 2}
   m_sharedMaterial: {fileID: -8625983863857988015, guid: 46266f38bcbb19847a196e9582a4aea5, type: 2}

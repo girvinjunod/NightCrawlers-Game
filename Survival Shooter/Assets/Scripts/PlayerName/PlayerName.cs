@@ -5,15 +5,18 @@ using UnityEngine.UI;
 using TMPro;
 public class PlayerName : MonoBehaviour
 {
-    public TextMeshProUGUI playernameUI;
+    public TMP_InputField playernameUI;
 
     public TextMeshProUGUI playernameMenu;
     private PlayerData playername;
     void Awake()
     {
         var savedData = PlayerPrefs.GetString("PlayerName", "Player");
+        // Debug.Log(savedData);
         playername = new PlayerData(savedData);
+        // Debug.Log(playername.playername);
         playernameUI.text = playername.playername;
+        // Debug.Log(playernameUI.text);
     }
 
     private void OnDisable()
@@ -23,8 +26,17 @@ public class PlayerName : MonoBehaviour
 
     public void SaveName()
     {
-        // Debug.Log(playernameUI.text);
-        playernameMenu.text = playernameUI.text;
-        PlayerPrefs.SetString("PlayerName", playernameUI.text);
+        // Debug.Log(playernameUI.text.Length - 1);
+        if (playernameUI.text.Length - 1 > 0)
+        {
+            playernameMenu.text = playernameUI.text;
+            PlayerPrefs.SetString("PlayerName", playernameUI.text);
+        }
+        else
+        {
+            // Debug.Log("Kosong");
+            playernameMenu.text = "Player";
+            PlayerPrefs.SetString("PlayerName", "Player");
+        }
     }
 }
