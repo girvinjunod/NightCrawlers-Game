@@ -7,15 +7,15 @@ public class EnemyAttack : MonoBehaviour
     public int attackDamage = 10;
 
 
-    Animator anim;
     GameObject player;
-    PlayerHealth playerHealth;
-    EnemyHealth enemyHealth;
     bool playerInRange;
-    float timer;
+    protected EnemyHealth enemyHealth;
+    protected Animator anim;
+    protected PlayerHealth playerHealth;
+    protected float timer;
 
 
-    void Awake ()
+    protected virtual void Awake ()
     {
         player = GameObject.FindGameObjectWithTag ("Player");
         playerHealth = player.GetComponent <PlayerHealth> ();
@@ -56,7 +56,7 @@ public class EnemyAttack : MonoBehaviour
     }
 
 
-    void Attack ()
+    protected virtual void Attack ()
     {
         timer = 0f;
 
