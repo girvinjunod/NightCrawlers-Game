@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ZenMode.unity
     guid: 8627a76891bacd547b1c1800eed843a8
+  - enabled: 1
+    path: Assets/Scenes/WaveMode.unity
+    guid: 0903be0bed5ed9a46a6d4aeab44c3f2c
   m_configObjects: {}

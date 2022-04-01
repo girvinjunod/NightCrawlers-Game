@@ -16,7 +16,7 @@ public class GameModeMenu : MonoBehaviour
     {
         PauseMenu.GameIsPaused = false;
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Level_01");
+        SceneManager.LoadScene("WaveMode");
     }
 
 }
