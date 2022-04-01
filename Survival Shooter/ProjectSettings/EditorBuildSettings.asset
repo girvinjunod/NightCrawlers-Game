@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_01.unity
     guid: 2a8ba1b086de4014a821b1fe41f940d9
+  - enabled: 1
+    path: Assets/Scenes/ZenMode.unity
+    guid: 8627a76891bacd547b1c1800eed843a8
   m_configObjects: {}
