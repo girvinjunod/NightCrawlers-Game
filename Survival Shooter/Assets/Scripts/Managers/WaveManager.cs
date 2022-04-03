@@ -7,7 +7,6 @@ using Random = System.Random;
 public class WaveManager : MonoBehaviour
 {
 	int maxWave = 4;
-	int currentWave = 0;
 	List<GameObject> currentEnemy = new List<GameObject>();
 	List<Wave> waves = new List<Wave>();
 
@@ -15,6 +14,7 @@ public class WaveManager : MonoBehaviour
 	public GameObject boss;
 	public Transform[] spawnPoints;
 	public PlayerHealth playerHealth;
+	public int currentWave = 1;
 
 	static Random rnd = new Random();
 
@@ -37,7 +37,7 @@ public class WaveManager : MonoBehaviour
 	{
 		for (int i = 0; i < maxWave; i++)
 	    {
-	        int weight = (i * 5) + 5;
+	        int weight = (i * 5) + 15;
 			List<GameObject> spawnedEnemy = enemyType.GetRange(0, i + 1);
 
 	        waves.Add(new Wave(weight, spawnedEnemy, i + 1));
@@ -55,23 +55,24 @@ public class WaveManager : MonoBehaviour
 		RemoveDeadEnemy();
 		if(currentWave != maxWave && waves.Count >= 0 && playerHealth.currentHealth > 0f && currentEnemy.Count == 0)
         {
-			Spawn(waves[currentWave]);
+			StartCoroutine(Spawn(waves[currentWave]));
 		}
 	}
 
 	/**
 	Enemy weight is its index + 1
 	*/
-	void Spawn(Wave wave)
+	IEnumerator Spawn(Wave wave)
     {
+		currentWave += 1;
 		List<GameObject> waveEnemy = RandomizeEnemy(wave);
 		foreach (GameObject enemyToSpawn in waveEnemy.ToArray())
 		{
 			int spawnPointIndex = rnd.Next(0, 1000) % spawnPoints.Length;
 			GameObject enemyInstance = Instantiate(enemyToSpawn, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 			currentEnemy.Add(enemyInstance);
+			yield return new WaitForSeconds(3);
 		}
-		currentWave += 1;
 	}
 
 	List<GameObject> RandomizeEnemy(Wave wave)
