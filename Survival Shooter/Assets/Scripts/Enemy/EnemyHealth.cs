@@ -82,7 +82,6 @@ public class EnemyHealth : MonoBehaviour
         isSinking = true;
         if(!isSuicide)
         {
-            Debug.Log("MSK");
             ScoreManager.score += scoreValue;
         }
         Destroy (gameObject, 2f);
