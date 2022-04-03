@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 
+
 public class WaveManager : MonoBehaviour
 {
-	int maxWave = 3;
+	int maxWave = 4;
 	int currentWave = 0;
 	List<GameObject> currentEnemy = new List<GameObject>();
 	List<Wave> waves = new List<Wave>();
 
-	public List<GameObject> enemy;
+	public List<GameObject> enemyType;
 	public GameObject boss;
 	public Transform[] spawnPoints;
 	public PlayerHealth playerHealth;
 
+	static Random rnd = new Random();
 
 	[System.Serializable]
 	public class Wave
@@ -33,17 +35,12 @@ public class WaveManager : MonoBehaviour
 
 	void InitWaves()
 	{
-	    for(int i = 0; i < maxWave; i++)
+		for (int i = 0; i < maxWave; i++)
 	    {
-	        int weight;
-	        List<GameObject> selectedEnemy = new List<GameObject>();
-	        selectedEnemy.Add(enemy[i]);
-	        weight = (i * 5) + 5;
-	        if ( (i + 1) % 3 == 0)
-	        {
-	            selectedEnemy.Add(boss);
-	        }
-	        waves.Add(new Wave(weight, selectedEnemy, i + 1));
+	        int weight = (i * 5) + 5;
+			List<GameObject> spawnedEnemy = enemyType.GetRange(0, i + 1);
+
+	        waves.Add(new Wave(weight, spawnedEnemy, i + 1));
 	    }
 	}
 
@@ -54,11 +51,12 @@ public class WaveManager : MonoBehaviour
 
 	void Update()
 	{
+
 		RemoveDeadEnemy();
 		if(currentWave != maxWave && waves.Count >= 0 && playerHealth.currentHealth > 0f && currentEnemy.Count == 0)
         {
 			Spawn(waves[currentWave]);
-        }
+		}
 	}
 
 	/**
@@ -66,31 +64,37 @@ public class WaveManager : MonoBehaviour
 	*/
 	void Spawn(Wave wave)
     {
-		List<GameObject> enemy = RandomizeEnemy(wave.enemyPool, wave.weight);
-
-		foreach(GameObject enemyToSpawn in enemy)
+		List<GameObject> waveEnemy = RandomizeEnemy(wave);
+		foreach (GameObject enemyToSpawn in waveEnemy.ToArray())
 		{
-			var rnd = new Random();
-			int spawnPointIndex = rnd.Next(0, spawnPoints.Length);
+			int spawnPointIndex = rnd.Next(0, 1000) % spawnPoints.Length;
 			GameObject enemyInstance = Instantiate(enemyToSpawn, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
 			currentEnemy.Add(enemyInstance);
 		}
 		currentWave += 1;
 	}
 
-	List<GameObject> RandomizeEnemy(List<GameObject> enemyPool, int waveWeight)
+	List<GameObject> RandomizeEnemy(Wave wave)
     {
-		var rnd = new Random();
 		List<GameObject> randomEnemy = new List<GameObject>();
 
 		int weight = 0;
-		while (weight != waveWeight)
+		while (weight != wave.weight)
 		{
-			int idx = rnd.Next(0, enemyPool.Count);
-			if ((weight + idx + 1) <= waveWeight)
+			int idx = rnd.Next(0, 1000) % wave.enemyPool.Count;
+			if ((weight + idx + 1) <= wave.weight)
 			{
 				weight += idx + 1;
-				randomEnemy.Add(enemyPool[idx]);
+				randomEnemy.Add(wave.enemyPool[idx]);
+			}
+		}
+
+		// Add boss
+		if(wave.waveNumber % 3 == 0)
+		{
+			for (int i = 0; i < wave.waveNumber / 3; i++)
+			{
+				randomEnemy.Add(boss);
 			}
 		}
 
