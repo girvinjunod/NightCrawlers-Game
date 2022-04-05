@@ -16,6 +16,7 @@ public class EndlessScoreboardManager : MonoBehaviour
         {
             // StateHolder.playerName = "Cupuuu";
             // StateHolder.playerTime = 4500;
+            StateHolder.highScorePos = -1;
             if (scoreData.scores.Count == 0)
             {
                 scoreData.scores.Insert(0, new EndlessScore(StateHolder.playerName, StateHolder.playerTime));

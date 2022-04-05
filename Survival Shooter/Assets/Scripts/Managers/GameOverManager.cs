@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class GameOverManager : MonoBehaviour
 {
-    public PlayerHealth playerHealth;       
-    public float restartDelay = 5f;            
+
+    // public float restartDelay = 5f;
 
 
-    Animator anim;                          
-    float restartTimer;                    
+    Animator anim;
+    public Text timetext;
+    // float restartTimer;
 
 
     void Awake()
@@ -19,16 +20,28 @@ public class GameOverManager : MonoBehaviour
 
     void Update()
     {
-        if (playerHealth.currentHealth <= 0)
+        // Debug.Log(StateHolder.isGameOver);
+        if (StateHolder.isGameOver)
         {
             anim.SetTrigger("GameOver");
-
-            restartTimer += Time.deltaTime;
-
-            if (restartTimer >= restartDelay)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
         }
+        // Debug.Log("Game Over");
+
+
+        // restartTimer += Time.deltaTime;
+
+        // if (restartTimer >= restartDelay)
+        // {
+        //     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // }
     }
+
+    public void continueToResult()
+    {
+        Debug.Log("Continue");
+        StateHolder.playerTime = Utils.getSecondsFromTimeString(timetext.text);
+        StateHolder.GameMode = "ZenMode";
+        SceneManager.LoadScene("Result");
+    }
+
 }

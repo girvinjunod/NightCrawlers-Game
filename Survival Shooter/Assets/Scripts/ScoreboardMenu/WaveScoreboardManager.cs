@@ -11,12 +11,13 @@ public class WaveScoreboardManager : MonoBehaviour
     {
         var json = PlayerPrefs.GetString("WaveScoreboard", "{}");
         scoreData = JsonUtility.FromJson<WaveScoreData>(json);
-        Debug.Log(StateHolder.GameMode);
+        // Debug.Log(StateHolder.GameMode);
         if (StateHolder.GameMode == "WaveMode")
         {
-            StateHolder.playerName = "Cupuuu";
-            StateHolder.playerScore = 27;
-            StateHolder.playerWave = 2;
+            // StateHolder.playerName = "Cupuuu";
+            // StateHolder.playerScore = 27;
+            // StateHolder.playerWave = 2;
+            StateHolder.highScorePos = -1;
             if (scoreData.scores.Count == 0)
             {
                 scoreData.scores.Insert(0, new WaveScore(StateHolder.playerName, StateHolder.playerScore, StateHolder.playerWave));

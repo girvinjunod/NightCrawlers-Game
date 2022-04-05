@@ -15,5 +15,7 @@ public static class StateHolder
 
     public static int highScorePos { get; set; }
 
+    public static bool isGameOver { get; set; }
+
 
 }

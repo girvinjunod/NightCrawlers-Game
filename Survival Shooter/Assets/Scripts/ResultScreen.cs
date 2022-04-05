@@ -12,9 +12,9 @@ public class ResultScreen : MonoBehaviour
     public GameObject WaveScoreboard;
     void Awake()
     {
-        // PlayerPrefs.DeleteKey("WaveScoreboard");
+        // PlayerPrefs.DeleteKey("EndlessScoreboard");
         //enable the scoreboard
-        StateHolder.GameMode = "WaveMode";
+        // StateHolder.GameMode = "WaveMode";
 
         if (StateHolder.GameMode == "WaveMode")
         {
@@ -34,6 +34,8 @@ public class ResultScreen : MonoBehaviour
 
     public void Restart()
     {
+        StateHolder.highScorePos = -1;
+        StateHolder.isGameOver = false;
         SceneManager.LoadScene(StateHolder.GameMode);
     }
 
