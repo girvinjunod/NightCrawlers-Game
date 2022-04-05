@@ -21,6 +21,13 @@ public class WaveScoreUI : MonoBehaviour
             row.playername.text = scores[i].playername;
             row.wave.text = scores[i].wave.ToString();
             row.score.text = scores[i].score.ToString();
+            if (StateHolder.highScorePos == i)
+            {
+                row.rank.color = Color.yellow;
+                row.playername.color = Color.yellow;
+                row.wave.color = Color.yellow;
+                row.score.color = Color.yellow;
+            }
         }
     }
 

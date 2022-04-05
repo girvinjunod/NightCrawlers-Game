@@ -9,6 +9,9 @@ public class MainMenu : MonoBehaviour
     {
         // PlayerPrefs.DeleteKey("PlayerName");
         var savedName = PlayerPrefs.GetString("PlayerName", "Player");
+        StateHolder.playerName = savedName;
+        StateHolder.highScorePos = -1;
+        StateHolder.GameMode = "Menu";
         if (savedName.Length - 1 > 0)
         {
             playername.text = savedName;
