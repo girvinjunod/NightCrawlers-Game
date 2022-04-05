@@ -10,7 +10,7 @@ public class GameModeMenu : MonoBehaviour
         PauseMenu.GameIsPaused = false;
         Time.timeScale = 1f;
         StateHolder.GameMode = "ZenMode";
-        SceneManager.LoadScene("Level_01");
+        SceneManager.LoadScene("ZenMode");
     }
 
     public void playWave()
@@ -18,7 +18,7 @@ public class GameModeMenu : MonoBehaviour
         PauseMenu.GameIsPaused = false;
         Time.timeScale = 1f;
         StateHolder.GameMode = "WaveMode";
-        SceneManager.LoadScene("Level_01");
+        SceneManager.LoadScene("WaveMode");
     }
 
 }
