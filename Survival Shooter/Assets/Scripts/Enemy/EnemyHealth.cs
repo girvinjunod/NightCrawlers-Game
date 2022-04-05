@@ -18,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
     bool isDead;
 
 
-    void Awake ()
+    protected virtual void Awake ()
     {
         anim = GetComponent <Animator> ();
         enemyAudio = GetComponent <AudioSource> ();
@@ -57,7 +57,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    public void Death ()
+    public virtual void Death ()
     {
         isDead = true;
 

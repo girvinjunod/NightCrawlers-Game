@@ -1386,7 +1386,7 @@ MonoBehaviour:
   enemyType:
   - {fileID: 7520786358382920236, guid: 036af4fc6275afa4292108b7d657cc6b, type: 3}
   - {fileID: 100000, guid: 3688f3f3f312c984fa78e00c09819e6c, type: 3}
-  - {fileID: 1115004766054490846, guid: 312b31977ed9b2d48a14849ebb8c7fb3, type: 3}
+  - {fileID: 7111209198428513237, guid: 312b31977ed9b2d48a14849ebb8c7fb3, type: 3}
   - {fileID: 153412, guid: f264ab47e25d0374ba89abced0b94b2a, type: 3}
   boss: {fileID: 8308849846997778820, guid: fa77a6797831f5742b2de87e51b1d1c9, type: 3}
   spawnPoints:
