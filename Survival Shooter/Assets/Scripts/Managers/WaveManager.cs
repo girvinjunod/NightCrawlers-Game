@@ -7,9 +7,9 @@ using Random = System.Random;
 public class WaveManager : MonoBehaviour
 {
     int maxWave = 4;
-    List<GameObject> currentEnemy = new List<GameObject>();
     List<Wave> waves = new List<Wave>();
 
+    public List<GameObject> currentEnemy = new List<GameObject>();
     public List<GameObject> enemyType;
     public GameObject boss;
     public Transform[] spawnPoints;
