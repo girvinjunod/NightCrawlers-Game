@@ -58,6 +58,10 @@ public class GameOverManager : MonoBehaviour
             StateHolder.playerScore = int.Parse(arrscore[1]);
             SceneManager.LoadScene("Result");
         }
+        else
+        {
+            SceneManager.LoadScene("Result");
+        }
     }
 
 }
