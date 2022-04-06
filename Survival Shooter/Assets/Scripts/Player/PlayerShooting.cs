@@ -84,7 +84,7 @@ public class PlayerShooting : MonoBehaviour
         if (damagePerShot < 200)
         {  
           damagePerShot += 10;
-          PowerManager.power += 10;
+          PowerManager.power += 1;
         }
     }    
 }
