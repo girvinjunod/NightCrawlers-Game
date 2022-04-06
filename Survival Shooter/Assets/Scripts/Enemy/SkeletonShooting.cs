@@ -18,7 +18,6 @@ public class SkeletonShooting : MonoBehaviour
     GameObject player;
     PlayerHealth playerHealth;
 
-    GameObject enemy;
     EnemyHealth enemyHealth;
 
     void Awake()
@@ -26,8 +25,7 @@ public class SkeletonShooting : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
 
-        enemy = GameObject.FindGameObjectWithTag("Skeleton"); ;
-        enemyHealth = enemy.GetComponent<EnemyHealth>();
+        enemyHealth = gameObject.GetComponentInParent(typeof(EnemyHealth)) as EnemyHealth;
 
         shootableMask = LayerMask.GetMask("Default");
         gunParticles = GetComponent<ParticleSystem>();
@@ -77,7 +75,7 @@ public class SkeletonShooting : MonoBehaviour
         gunLine.SetPosition(0, transform.position);
 
         shootRay.origin = transform.position;
-        shootRay.direction = player.transform.position;
+        shootRay.direction = transform.forward;
 
         if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
         {
