@@ -9,6 +9,7 @@ public class GameModeMenu : MonoBehaviour
     {
         PauseMenu.GameIsPaused = false;
         Time.timeScale = 1f;
+        StateHolder.isGameOver = false;
         StateHolder.GameMode = "ZenMode";
         SceneManager.LoadScene("ZenMode");
     }
@@ -17,6 +18,7 @@ public class GameModeMenu : MonoBehaviour
     {
         PauseMenu.GameIsPaused = false;
         Time.timeScale = 1f;
+        StateHolder.isGameOver = false;
         StateHolder.GameMode = "WaveMode";
         SceneManager.LoadScene("WaveMode");
     }
