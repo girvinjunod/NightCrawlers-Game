@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System;
 public class PlayerHealth : MonoBehaviour
 {
     public int startingHealth = 100;
@@ -53,7 +54,9 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth -= amount;
 
-        healthSlider.value = currentHealth;
+        HealthManager.health = currentHealth;
+        healthSlider.value =  (Convert.ToSingle(HealthManager.health)/Convert.ToSingle(HealthManager.maxHealth)) * 100;
+
 
         playerAudio.Play();
 
@@ -79,6 +82,18 @@ public class PlayerHealth : MonoBehaviour
         playerShooting.enabled = false;
     }
 
+    public void healthOrb(){
+        if (HealthManager.maxHealth < 300){
+            currentHealth += 20;
+            HealthManager.health += 20;
+            HealthManager.maxHealth += 20;
+            healthSlider.value =  (Convert.ToSingle(HealthManager.health)/Convert.ToSingle(HealthManager.maxHealth)) * 100;
+        }  else {
+            currentHealth += 20;
+            HealthManager.health += 20;
+            healthSlider.value =  (Convert.ToSingle(HealthManager.health)/Convert.ToSingle(HealthManager.maxHealth)) * 100;
+        }    
+    }
     // public void RestartLevel() {
     //     SceneManager.LoadScene(0);
     // }

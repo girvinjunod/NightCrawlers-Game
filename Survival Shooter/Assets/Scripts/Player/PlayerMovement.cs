@@ -2,7 +2,8 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 6f;
+    public float initialspeed = 6f;
+    public float speed ;
     Vector3 movement;
     Animator anim;
     Rigidbody playerRigidbody;
@@ -13,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
         floorMask = LayerMask.GetMask("Floor");
         anim = GetComponent <Animator> ();
         playerRigidbody = GetComponent<Rigidbody>();
-
+        speed = initialspeed;
     }
 
     void FixedUpdate() {
@@ -50,5 +51,12 @@ public class PlayerMovement : MonoBehaviour
         bool walking = h != 0f || v != 0f;
         anim.SetBool("IsWalking", walking);
     }
+
+    public void speedOrb(){
+      // if (speed < 10f){
+        speed += 0.5f;
+        SpeedManager.speed += 0.5f;
+      // }
+    }    
 
 }
