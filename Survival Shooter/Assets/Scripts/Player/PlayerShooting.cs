@@ -79,4 +79,12 @@ public class PlayerShooting : MonoBehaviour
             gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
         }
     }
+    public void powerOrb()
+    {
+        if (damagePerShot < 200)
+        {  
+          damagePerShot += 10;
+          PowerManager.power += 1;
+        }
+    }    
 }
