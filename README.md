@@ -5,16 +5,21 @@
 # Library 
 | Nama     | Alasan |
 | ----------- | ----------- |
-| x| y|
+| TextMeshPro | Mempermudah dalam desain GUI terutama untuk text|
 
 # Screenshot Aplikasi
 
 # Pembagian Kerja
 Isabella Handayani - 13519081
-- Something
+- Additional Mobs
+- Game Mode
 
 Alexander - 13519090
-- Something
+- Player Attributes
+- Orbs
 
 Girvin Junod - 13519096
-- Something
+- Main Menu
+- Pause Menu
+- Game Over + Player Results
+- Scoreboard
