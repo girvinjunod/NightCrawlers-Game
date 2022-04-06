@@ -54,8 +54,8 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth -= amount;
 
-        HealthManager.health = currentHealth;
-        healthSlider.value =  (Convert.ToSingle(HealthManager.health)/Convert.ToSingle(HealthManager.maxHealth)) * 100;
+        HPBarManager.health = currentHealth;
+        healthSlider.value =  (Convert.ToSingle(HPBarManager.health)/Convert.ToSingle(HPBarManager.maxHealth)) * 100;
 
 
         playerAudio.Play();
@@ -83,15 +83,15 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void healthOrb(){
-        if (HealthManager.maxHealth < 300){
+        if (HPBarManager.maxHealth < 300){
             currentHealth += 20;
-            HealthManager.health += 20;
-            HealthManager.maxHealth += 20;
-            healthSlider.value =  (Convert.ToSingle(HealthManager.health)/Convert.ToSingle(HealthManager.maxHealth)) * 100;
+            HPBarManager.health += 20;
+            HPBarManager.maxHealth += 20;
+            healthSlider.value =  (Convert.ToSingle(HPBarManager.health)/Convert.ToSingle(HPBarManager.maxHealth)) * 100;
         }  else {
             currentHealth += 20;
-            HealthManager.health += 20;
-            healthSlider.value =  (Convert.ToSingle(HealthManager.health)/Convert.ToSingle(HealthManager.maxHealth)) * 100;
+            HPBarManager.health += 20;
+            healthSlider.value =  (Convert.ToSingle(HPBarManager.health)/Convert.ToSingle(HPBarManager.maxHealth)) * 100;
         }    
     }
     // public void RestartLevel() {
