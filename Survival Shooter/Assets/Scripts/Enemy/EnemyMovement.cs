@@ -3,13 +3,13 @@ using System.Collections;
 
 public class EnemyMovement : MonoBehaviour
 {
-    Transform player;
-    PlayerHealth playerHealth;
-    EnemyHealth enemyHealth;
+    protected Transform player;
+    protected PlayerHealth playerHealth;
+    protected EnemyHealth enemyHealth;
     UnityEngine.AI.NavMeshAgent nav;
 
 
-    private void Awake ()
+    protected virtual void Awake ()
     {
         player = GameObject.FindGameObjectWithTag ("Player").transform;
 
@@ -19,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
 
-    void Update ()
+    protected virtual void Update ()
     {
         if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
         {
