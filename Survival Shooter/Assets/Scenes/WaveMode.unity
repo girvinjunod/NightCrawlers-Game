@@ -379,11 +379,11 @@ PrefabInstance:
     - target: {fileID: 4002831950928287862, guid: 84761a9725f7bec4ca029db44a7542cc, type: 3}
       propertyPath: wave
       value: 
-      objectReference: {fileID: 1455513678}
+      objectReference: {fileID: 494789055}
     - target: {fileID: 4002831950928287862, guid: 84761a9725f7bec4ca029db44a7542cc, type: 3}
       propertyPath: score
       value: 
-      objectReference: {fileID: 494789055}
+      objectReference: {fileID: 1455513678}
     - target: {fileID: 4002831950928287863, guid: 84761a9725f7bec4ca029db44a7542cc, type: 3}
       propertyPath: m_Pivot.x
       value: 0
