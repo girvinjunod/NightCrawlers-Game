@@ -3593,7 +3593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9119066394149137113, guid: be50d7281d71b064fa7d4049f307bcda, type: 3}
       propertyPath: spawnTime
-      value: 1
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9119066394149137113, guid: be50d7281d71b064fa7d4049f307bcda, type: 3}
       propertyPath: playerHealth
