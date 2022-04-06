@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using System;
 
 
 public class EndlessScoreboardManager : MonoBehaviour
@@ -13,6 +12,49 @@ public class EndlessScoreboardManager : MonoBehaviour
     {
         var json = PlayerPrefs.GetString("EndlessScoreboard", "{}");
         scoreData = JsonUtility.FromJson<EndlessScoreData>(json);
+        if (StateHolder.GameMode == "ZenMode")
+        {
+            // StateHolder.playerName = "Cupuuu";
+            // StateHolder.playerTime = 4500;
+            StateHolder.highScorePos = -1;
+            if (scoreData.scores.Count == 0)
+            {
+                scoreData.scores.Insert(0, new EndlessScore(StateHolder.playerName, StateHolder.playerTime));
+                StateHolder.highScorePos = 0;
+            }
+            else
+            {
+                bool inserted = false;
+                for (int i = 0; i < scoreData.scores.Count; i++)
+                {
+                    // Debug.Log(scoreData.scores[i].playername + " - " + scoreData.scores[i].time);
+                    // Debug.Log(scoreData.scores[i].time);
+                    // Debug.Log(StateHolder.playerTime);
+                    if (scoreData.scores[i].time <= StateHolder.playerTime)
+                    {
+                        scoreData.scores.Insert(i, new EndlessScore(StateHolder.playerName, StateHolder.playerTime));
+                        if (scoreData.scores.Count > 10)
+                        {
+                            scoreData.scores.RemoveAt(scoreData.scores.Count - 1);
+                        }
+                        StateHolder.highScorePos = i;
+                        inserted = true;
+                        break;
+                    }
+                }
+                if (!inserted && scoreData.scores.Count < 10)
+                {
+                    scoreData.scores.Add(new EndlessScore(StateHolder.playerName, StateHolder.playerTime));
+                    StateHolder.highScorePos = scoreData.scores.Count - 1;
+                    inserted = true;
+                }
+                if (!inserted)
+                {
+                    StateHolder.highScorePos = -1;
+                }
+            }
+            // StateHolder.GameMode = "Menu";
+        }
     }
     public IEnumerable<EndlessScore> GetHighScores()
     {

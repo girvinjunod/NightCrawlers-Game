@@ -19,7 +19,13 @@ public class EndlessScoreUI : MonoBehaviour
             var row = Instantiate(rowUI, transform).GetComponent<EndlessRowUI>();
             row.rank.text = (i + 1).ToString();
             row.playername.text = scores[i].playername;
-            row.time.text = scores[i].time;
+            row.time.text = Utils.getTimeFromSeconds(scores[i].time);
+            if (StateHolder.highScorePos == i)
+            {
+                row.rank.color = Color.yellow;
+                row.playername.color = Color.yellow;
+                row.time.color = Color.yellow;
+            }
         }
     }
 
