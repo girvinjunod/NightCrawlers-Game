@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7730985203334727263}
   - component: {fileID: 7677878836662909429}
   - component: {fileID: 8802745707010270747}
+  - component: {fileID: -2546065268134800}
   m_Layer: 0
   m_Name: PowerOrb
   m_TagString: Untagged
@@ -121,3 +122,17 @@ CapsuleCollider:
   m_Height: 2.2253287
   m_Direction: 1
   m_Center: {x: -0.00000047683716, y: 0, z: -0.00000017881398}
+--- !u!114 &-2546065268134800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7717975650593980257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8cce2a909fcc054da59ba68a8686130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupType: 0
+  delay: 60

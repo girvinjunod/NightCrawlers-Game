@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2157059274555846579}
   - component: {fileID: 2029960083155076803}
   - component: {fileID: -8323375620383451189}
+  - component: {fileID: 2978587479214644052}
   m_Layer: 0
   m_Name: HealthOrb
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142959268533074437}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.84, y: 0.55, z: 0.0006417077}
   m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2147059023772346359
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -121,3 +122,17 @@ CapsuleCollider:
   m_Height: 0.44791496
   m_Direction: 1
   m_Center: {x: 0.0014882088, y: -0.0025726787, z: -0.046597403}
+--- !u!114 &2978587479214644052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142959268533074437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8cce2a909fcc054da59ba68a8686130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupType: 2
+  delay: 60
