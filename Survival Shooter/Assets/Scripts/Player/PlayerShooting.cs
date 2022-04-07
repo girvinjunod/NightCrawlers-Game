@@ -29,7 +29,7 @@ public class PlayerShooting : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && PauseMenu.GameIsPaused == false)
+        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && PauseMenu.GameIsPaused == false && UpgradeMenu.IsUpgradeNow == false)
         {
             Shoot();
         }
@@ -77,6 +77,14 @@ public class PlayerShooting : MonoBehaviour
         else
         {
             gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
+        }
+    }
+    public void powerOrb()
+    {
+        if (damagePerShot < 200)
+        {
+            damagePerShot += 10;
+            PowerManager.power += 1;
         }
     }
 }
