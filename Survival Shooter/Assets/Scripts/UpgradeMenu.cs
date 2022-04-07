@@ -47,7 +47,7 @@ public class UpgradeMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StateHolder.GameMode = "ZenMode";
+        // StateHolder.GameMode = "ZenMode";
         if (numUpgrades != maxNumUpgrades && !StateHolder.isGameOver)
         {
             if (StateHolder.GameMode == "ZenMode")
@@ -61,7 +61,7 @@ public class UpgradeMenu : MonoBehaviour
             }
             else if (StateHolder.GameMode == "WaveMode")
             {
-                if (waveManager.currentWave % 3 == 1 && waveManager.currentWave != 1)
+                if (waveManager.currentWave % 3 == 1 && waveManager.currentWave != 1 && waveManager.currentWave - 1 / 3 == numUpgrades + 1)
                 {
                     Pause();
                 }
