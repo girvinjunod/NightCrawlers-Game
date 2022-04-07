@@ -7,6 +7,8 @@ public class SkeletonAttack : EnemyAttack
     GameObject flameThrower;
     ParticleSystem explosion;
 
+    bool isFiring;
+
     override protected void Awake()
     {
         base.Awake();
@@ -20,8 +22,17 @@ public class SkeletonAttack : EnemyAttack
 
         if (playerHealth.currentHealth > 0)
         {
-            flameThrower.SetActive(true);
+            StartCoroutine(SetFlameThrower());
         }
+    }
+
+    IEnumerator SetFlameThrower()
+    {
+        flameThrower.SetActive(true);
+
+        yield return new WaitForSeconds(5);
+
+        flameThrower.SetActive(false);
     }
 
 
@@ -34,7 +45,7 @@ public class SkeletonAttack : EnemyAttack
     {
         timer += Time.deltaTime;
 
-        if (timer >= timeBetweenAttacks && PlayerInRange(player.transform) && enemyHealth.currentHealth > 0)
+        if (timer >= timeBetweenAttacks && PlayerInRange(player.transform) && enemyHealth.currentHealth > 0 && !isFiring)
         {
           Attack();
         }

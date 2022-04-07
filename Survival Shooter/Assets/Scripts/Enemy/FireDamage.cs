@@ -43,7 +43,7 @@ public class FireDamage : MonoBehaviour
             playerHealth.TakeDamage(Damage);
         }
 
-        if(playerHealth.currentHealth <= 0)
+        if (playerHealth.currentHealth <= 0)
         {
             gameObject.SetActive(false);
         }
