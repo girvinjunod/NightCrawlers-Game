@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
     bool isDead;
-
+    bool isWin = false;
 
     protected virtual void Awake ()
     {
@@ -85,5 +85,11 @@ public class EnemyHealth : MonoBehaviour
             ScoreManager.score += scoreValue;
         }
         Destroy (gameObject, 2f);
+    }
+
+    public void SetGameResult()
+    {
+        isWin = true ;
+        Debug.Log(isWin);
     }
 }
