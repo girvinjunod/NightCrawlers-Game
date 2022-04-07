@@ -19,6 +19,6 @@ public class HPBarManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = health + "/" + maxHealth;
+        text.text = (health >= 0 ? health : 0) + "/" + maxHealth;
     }
 }

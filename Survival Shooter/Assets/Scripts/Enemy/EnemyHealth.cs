@@ -16,9 +16,9 @@ public class EnemyHealth : MonoBehaviour
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
     bool isDead;
+    bool isWin = false;
 
-
-    void Awake ()
+    protected virtual void Awake ()
     {
         anim = GetComponent <Animator> ();
         enemyAudio = GetComponent <AudioSource> ();
@@ -57,7 +57,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    public void Death ()
+    public virtual void Death ()
     {
         isDead = true;
 
@@ -85,5 +85,11 @@ public class EnemyHealth : MonoBehaviour
             ScoreManager.score += scoreValue;
         }
         Destroy (gameObject, 2f);
+    }
+
+    public void SetGameResult()
+    {
+        isWin = true ;
+        Debug.Log(isWin);
     }
 }
