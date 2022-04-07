@@ -9,7 +9,7 @@ public class SkeletonMovement : EnemyMovement
     override protected void Awake()
     {
         base.Awake();
-        skeleton = GameObject.FindGameObjectWithTag("Skeleton").transform;
+        skeleton = gameObject.transform;
     }
 
     override protected void Update()

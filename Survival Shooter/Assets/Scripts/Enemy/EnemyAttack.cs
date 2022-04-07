@@ -7,8 +7,8 @@ public class EnemyAttack : MonoBehaviour
     public int attackDamage = 10;
 
 
-    GameObject player;
-    bool playerInRange;
+    protected GameObject player;
+    protected bool playerInRange;
     protected EnemyHealth enemyHealth;
     protected Animator anim;
     protected PlayerHealth playerHealth;
@@ -23,7 +23,7 @@ public class EnemyAttack : MonoBehaviour
         anim = GetComponent <Animator> ();
     }
 
-    void OnTriggerEnter (Collider other)
+    protected virtual void OnTriggerEnter (Collider other)
     {
         if(other.gameObject == player && other.isTrigger == false)
         {
@@ -31,7 +31,7 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-    void OnTriggerExit (Collider other)
+    protected virtual void OnTriggerExit (Collider other)
     {
         if(other.gameObject == player)
         {
@@ -40,7 +40,7 @@ public class EnemyAttack : MonoBehaviour
     }
 
 
-    void Update ()
+    protected virtual void Update ()
     {
         timer += Time.deltaTime;
 

@@ -6,7 +6,7 @@ using Random = System.Random;
 
 public class WaveManager : MonoBehaviour
 {
-    int maxWave = 4;
+    int maxWave = 10;
     List<Wave> waves = new List<Wave>();
 
     public List<GameObject> currentEnemy = new List<GameObject>();
@@ -15,6 +15,7 @@ public class WaveManager : MonoBehaviour
     public Transform[] spawnPoints;
     public PlayerHealth playerHealth;
     public int currentWave = 1;
+    public GameObject reaper;
 
     static Random rnd = new Random();
 
@@ -38,11 +39,7 @@ public class WaveManager : MonoBehaviour
         for (int i = 0; i < maxWave; i++)
         {
             int weight = (i * 5) + 5;
-            //List<GameObject> spawnedEnemy = enemyType.GetRange(0, (i + 1) % enemyType.Count);
-
-            List<GameObject> spawnedEnemy = new List<GameObject>();
-            spawnedEnemy.Add(enemyType[4]);
-
+            List<GameObject> spawnedEnemy = enemyType.GetRange(0, (i + 1) % enemyType.Count);
             waves.Add(new Wave(weight, spawnedEnemy, i + 1));
         }
     }
@@ -100,6 +97,12 @@ public class WaveManager : MonoBehaviour
             {
                 randomEnemy.Add(boss);
             }
+        }
+
+        // Add Reaper
+        if(wave.waveNumber == maxWave)
+        {
+            randomEnemy.Add(reaper);
         }
 
         return randomEnemy;
