@@ -29,7 +29,7 @@ public class PlayerShooting : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && PauseMenu.GameIsPaused == false)
+        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && PauseMenu.GameIsPaused == false && UpgradeMenu.IsUpgradeNow == false)
         {
             Shoot();
         }
@@ -82,9 +82,9 @@ public class PlayerShooting : MonoBehaviour
     public void powerOrb()
     {
         if (damagePerShot < 200)
-        {  
-          damagePerShot += 10;
-          PowerManager.power += 1;
+        {
+            damagePerShot += 10;
+            PowerManager.power += 1;
         }
-    }    
+    }
 }
