@@ -41,12 +41,12 @@ public class WaveManager : MonoBehaviour
         for (int i = 0; i < maxWave; i++)
         {
             int weight = (i * 5) + 5;
-            List<GameObject> spawnedEnemy = enemyType.GetRange(0, (i + 1) % enemyType.Count);
+            List<GameObject> spawnedEnemy = enemyType.GetRange(0, (i + 1) > enemyType.Count ? enemyType.Count : (i + 1));
             waves.Add(new Wave(weight, spawnedEnemy, i + 1));
         }
     }
 
-    void Start()
+  void Start()
     {
         InitWaves();
     }
