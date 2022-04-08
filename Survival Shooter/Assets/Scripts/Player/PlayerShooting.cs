@@ -29,6 +29,8 @@ public class PlayerShooting : MonoBehaviour
         gunAudio = gunAudioArr[0];
         critAudio = gunAudioArr[1];
         gunLight = GetComponent<Light>();
+
+        critChance = 0;
     }
 
     void Update()
