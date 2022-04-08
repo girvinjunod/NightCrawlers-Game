@@ -18,6 +18,9 @@ public class GameOverManager : MonoBehaviour
     public Text GameOverText;
     // float restartTimer;
 
+    public GameObject screenfader;
+    public GameObject textObj;
+
 
     void Awake()
     {
@@ -30,6 +33,8 @@ public class GameOverManager : MonoBehaviour
         // Debug.Log(StateHolder.isGameOver);
         if (StateHolder.isGameOver)
         {
+            screenfader.SetActive(true);
+            textObj.SetActive(true);
             if (StateHolder.isWin)
             {
                 Debug.Log("Victory");

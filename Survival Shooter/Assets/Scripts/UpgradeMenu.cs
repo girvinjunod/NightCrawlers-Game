@@ -61,7 +61,7 @@ public class UpgradeMenu : MonoBehaviour
             }
             else if (StateHolder.GameMode == "WaveMode")
             {
-                if (waveManager.currentWave % 3 == 1 && waveManager.currentWave != 1 && waveManager.currentWave - 1 / 3 == numUpgrades + 1)
+                if (waveManager.currentWave % 3 == 1 && waveManager.currentWave != 1 && (waveManager.currentWave - 1) / 3 == numUpgrades + 1)
                 {
                     Pause();
                 }

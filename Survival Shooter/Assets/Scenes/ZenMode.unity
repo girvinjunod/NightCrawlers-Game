@@ -2581,7 +2581,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4002831951848588486, guid: 84761a9725f7bec4ca029db44a7542cc, type: 3}
   m_PrefabInstance: {fileID: 4002831951290252429}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4002831951290252430}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
@@ -3818,9 +3818,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4002831950928287862, guid: 84761a9725f7bec4ca029db44a7542cc, type: 3}
+      propertyPath: textObj
+      value: 
+      objectReference: {fileID: 4002831951290252430}
+    - target: {fileID: 4002831950928287862, guid: 84761a9725f7bec4ca029db44a7542cc, type: 3}
       propertyPath: timetext
       value: 
       objectReference: {fileID: 931623115}
+    - target: {fileID: 4002831950928287862, guid: 84761a9725f7bec4ca029db44a7542cc, type: 3}
+      propertyPath: screenfader
+      value: 
+      objectReference: {fileID: 4002831951290252431}
     - target: {fileID: 4002831950928287862, guid: 84761a9725f7bec4ca029db44a7542cc, type: 3}
       propertyPath: GameOverText
       value: 
@@ -3913,5 +3921,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4002831951251366006, guid: 84761a9725f7bec4ca029db44a7542cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002831951848588485, guid: 84761a9725f7bec4ca029db44a7542cc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84761a9725f7bec4ca029db44a7542cc, type: 3}
+--- !u!1 &4002831951290252430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4002831951848588485, guid: 84761a9725f7bec4ca029db44a7542cc, type: 3}
+  m_PrefabInstance: {fileID: 4002831951290252429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4002831951290252431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4002831951251366006, guid: 84761a9725f7bec4ca029db44a7542cc, type: 3}
+  m_PrefabInstance: {fileID: 4002831951290252429}
+  m_PrefabAsset: {fileID: 0}
