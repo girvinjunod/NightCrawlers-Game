@@ -597,6 +597,9 @@ MonoBehaviour:
   timetext: {fileID: 0}
   wave: {fileID: 0}
   score: {fileID: 0}
+  GameOverText: {fileID: 0}
+  screenfader: {fileID: 0}
+  textObj: {fileID: 0}
 --- !u!1 &529888204
 GameObject:
   m_ObjectHideFlags: 0

@@ -1914,6 +1914,7 @@ GameObject:
   - component: {fileID: 978120721}
   - component: {fileID: 978120720}
   - component: {fileID: 978120722}
+  - component: {fileID: 978120723}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -1999,8 +2000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 875225643}
-  enemy: {fileID: 5109793299770660461, guid: fa77a6797831f5742b2de87e51b1d1c9, type: 3}
-  spawnTime: 50
+  enemy: {fileID: 4005202741812708769, guid: fa77a6797831f5742b2de87e51b1d1c9, type: 3}
+  spawnTime: 180
   spawnPoints:
   - {fileID: 1155327835}
 --- !u!114 &978120721
@@ -2016,7 +2017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 875225643}
-  enemy: {fileID: 7111209198428513237, guid: 312b31977ed9b2d48a14849ebb8c7fb3, type: 3}
+  enemy: {fileID: 259881794847915840, guid: 312b31977ed9b2d48a14849ebb8c7fb3, type: 3}
   spawnTime: 15
   spawnPoints:
   - {fileID: 620326798}
@@ -2033,10 +2034,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 875225643}
-  enemy: {fileID: 3463724433575801908, guid: 5c0b94806b9cedd46baabd6b1bca7f17, type: 3}
-  spawnTime: 10
+  enemy: {fileID: 2126450660889058159, guid: 5c0b94806b9cedd46baabd6b1bca7f17, type: 3}
+  spawnTime: 25
   spawnPoints:
   - {fileID: 1701648412}
+--- !u!114 &978120723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978120715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 875225643}
+  enemy: {fileID: 6596184353762128066, guid: 1f8bc68183497bc4ea6fab0c52af4ca3, type: 3}
+  spawnTime: 600
+  spawnPoints:
+  - {fileID: 1155327835}
 --- !u!1 &1078761138
 GameObject:
   m_ObjectHideFlags: 0
