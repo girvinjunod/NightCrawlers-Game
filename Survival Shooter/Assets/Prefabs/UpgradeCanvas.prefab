@@ -668,7 +668,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Piercing Bullets
+  m_text: Headshot
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 46266f38bcbb19847a196e9582a4aea5, type: 2}
   m_sharedMaterial: {fileID: -8625983863857988015, guid: 46266f38bcbb19847a196e9582a4aea5, type: 2}
@@ -1519,8 +1519,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51.909, y: -38}
-  m_SizeDelta: {x: 583.69, y: 49.9999}
+  m_AnchoredPosition: {x: -41.713078, y: -42.078384}
+  m_SizeDelta: {x: 604.0818, y: 58.1567}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &518336731831292346
 CanvasRenderer:
@@ -1550,7 +1550,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bullets pierce +1 enemy
+  m_text: +15% Chance to Deal 200% Damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 46266f38bcbb19847a196e9582a4aea5, type: 2}
   m_sharedMaterial: {fileID: -8625983863857988015, guid: 46266f38bcbb19847a196e9582a4aea5, type: 2}

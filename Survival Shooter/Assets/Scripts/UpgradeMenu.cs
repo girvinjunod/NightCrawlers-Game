@@ -98,34 +98,28 @@ public class UpgradeMenu : MonoBehaviour
 
     public void Option1()
     {
-        if (counter1 < maxCounter1)
-        {
-            counter1++;
-            UpgradeOption1Counter.text = counter1 + "/" + maxCounter1;
-            Debug.Log("Upgrade 1");
-            Resume();
-        }
+        counter1++;
+        UpgradeOption1Counter.text = counter1 + "/" + maxCounter1;
+        Debug.Log("Upgrade 1");
+        Resume();
     }
 
     public void Option2()
     {
-        if (counter2 < maxCounter2)
-        {
-            counter2++;
-            UpgradeOption2Counter.text = counter2 + "/" + maxCounter2;
-            Debug.Log("Upgrade 2");
-            Resume();
-        }
+        counter2++;
+        UpgradeOption2Counter.text = counter2 + "/" + maxCounter2;
+        Debug.Log("Upgrade 2");
+        Resume();
     }
 
     public void Option3()
     {
-        if (counter3 < maxCounter3)
-        {
-            counter3++;
-            UpgradeOption3Counter.text = counter3 + "/" + maxCounter3;
-            Debug.Log("Upgrade 3");
-            Resume();
-        }
+        counter3++;
+        UpgradeOption3Counter.text = counter3 + "/" + maxCounter3;
+        Debug.Log("Upgrade 3");
+
+        PlayerShooting.critChance += 15;
+
+        Resume();
     }
 }

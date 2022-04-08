@@ -14,6 +14,8 @@ public class GameOverManager : MonoBehaviour
     public Text wave;
 
     public Text score;
+
+    public Text GameOverText;
     // float restartTimer;
 
 
@@ -28,6 +30,11 @@ public class GameOverManager : MonoBehaviour
         // Debug.Log(StateHolder.isGameOver);
         if (StateHolder.isGameOver)
         {
+            if (StateHolder.isWin)
+            {
+                Debug.Log("Victory");
+                GameOverText.text = "Victory";
+            }
             anim.SetTrigger("GameOver");
         }
         // Debug.Log("Game Over");

@@ -20,7 +20,7 @@ public class SkeletonAttack : EnemyAttack
     {
         base.timer = 0f;
 
-        if (playerHealth.currentHealth > 0)
+        if (playerHealth.currentHealth > 0 && !isFiring)
         {
             StartCoroutine(SetFlameThrower());
         }
@@ -28,10 +28,12 @@ public class SkeletonAttack : EnemyAttack
 
     IEnumerator SetFlameThrower()
     {
+        isFiring = true;
         flameThrower.SetActive(true);
 
         yield return new WaitForSeconds(5);
 
+        isFiring = false;
         flameThrower.SetActive(false);
     }
 
@@ -45,9 +47,9 @@ public class SkeletonAttack : EnemyAttack
     {
         timer += Time.deltaTime;
 
-        if (timer >= timeBetweenAttacks && PlayerInRange(player.transform) && enemyHealth.currentHealth > 0 && !isFiring)
+        if (timer >= timeBetweenAttacks && PlayerInRange(player.transform) && enemyHealth.currentHealth > 0)
         {
-          Attack();
+            Attack();
         }
 
         if (playerHealth.currentHealth <= 0)
@@ -55,12 +57,12 @@ public class SkeletonAttack : EnemyAttack
             anim.SetTrigger("PlayerDead");
         }
 
-        if(!PlayerInRange(player.transform))
+        if (!PlayerInRange(player.transform))
         {
             flameThrower.SetActive(false);
         }
 
-        if(enemyHealth.currentHealth <= 0)
+        if (enemyHealth.currentHealth <= 0)
         {
             explosion.Play();
             flameThrower.SetActive(false);
