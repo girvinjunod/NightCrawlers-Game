@@ -3450,6 +3450,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5187729808643459689, guid: a9b042c890e3a7045b0b660332b2de46, type: 3}
+      propertyPath: timeBetweenBullets
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9b042c890e3a7045b0b660332b2de46, type: 3}
 --- !u!1001 &3769188182163057060
@@ -3853,7 +3857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9119066394149137113, guid: be50d7281d71b064fa7d4049f307bcda, type: 3}
       propertyPath: spawnTime
-      value: 30
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9119066394149137113, guid: be50d7281d71b064fa7d4049f307bcda, type: 3}
       propertyPath: playerHealth
