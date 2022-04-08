@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
-
+// using System;
 public class PlayerShooting : MonoBehaviour
 {
     public int damagePerShot = 20;
     public float timeBetweenBullets = 0.15f;
     public float range = 100f;
+
+    public static int critChance = 0;
 
     float timer;
     Ray shootRay;
@@ -12,7 +14,9 @@ public class PlayerShooting : MonoBehaviour
     int shootableMask;
     ParticleSystem gunParticles;
     LineRenderer gunLine;
+    AudioSource[] gunAudioArr;
     AudioSource gunAudio;
+    AudioSource critAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
 
@@ -21,8 +25,12 @@ public class PlayerShooting : MonoBehaviour
         shootableMask = LayerMask.GetMask("Shootable");
         gunParticles = GetComponent<ParticleSystem>();
         gunLine = GetComponent<LineRenderer>();
-        gunAudio = GetComponent<AudioSource>();
+        gunAudioArr = GetComponents<AudioSource>();
+        gunAudio = gunAudioArr[0];
+        critAudio = gunAudioArr[1];
         gunLight = GetComponent<Light>();
+
+        critChance = 0;
     }
 
     void Update()
@@ -48,7 +56,9 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
+        bool isCrit = false;
         timer = 0f;
+
 
         gunAudio.Play();
 
@@ -69,7 +79,22 @@ public class PlayerShooting : MonoBehaviour
 
             if (enemyHealth != null)
             {
-                enemyHealth.TakeDamage(damagePerShot, shootHit.point);
+                int rand = Random.Range(0, 100);
+                if (rand < critChance)
+                {
+                    critAudio.Play();
+                    isCrit = true;
+                }
+                if (isCrit)
+                {
+                    Debug.Log("Crit");
+                    enemyHealth.TakeDamage(damagePerShot * 2, shootHit.point);
+
+                }
+                else
+                {
+                    enemyHealth.TakeDamage(damagePerShot, shootHit.point);
+                }
             }
 
             gunLine.SetPosition(1, shootHit.point);

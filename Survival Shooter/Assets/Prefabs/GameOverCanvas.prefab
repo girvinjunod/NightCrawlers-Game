@@ -136,6 +136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timetext: {fileID: 0}
+  wave: {fileID: 0}
+  score: {fileID: 0}
+  GameOverText: {fileID: 0}
 --- !u!1 &4002831951251366006
 GameObject:
   m_ObjectHideFlags: 0
