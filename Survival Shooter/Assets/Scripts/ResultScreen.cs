@@ -50,6 +50,7 @@ public class ResultScreen : MonoBehaviour
     {
         StateHolder.highScorePos = -1;
         StateHolder.isGameOver = false;
+        StateHolder.isWin = false;
         SceneManager.LoadScene(StateHolder.GameMode);
     }
 
