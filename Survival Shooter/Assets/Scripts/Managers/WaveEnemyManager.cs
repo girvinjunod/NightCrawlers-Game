@@ -17,6 +17,6 @@ public class WaveEnemyManager : MonoBehaviour
 
     void Update()
     {
-        text.text = "Enemies: " + waveManager.currentEnemy.Count;
+        text.text = "Enemies: " + waveManager.GetNumEnemy();
     }
 }

@@ -24,6 +24,11 @@ public class SkeletonAttack : EnemyAttack
         {
             StartCoroutine(SetFlameThrower());
         }
+
+        if(playerHealth.currentHealth > 0 && playerInRange)
+        {
+            base.Attack();
+        }
     }
 
     IEnumerator SetFlameThrower()

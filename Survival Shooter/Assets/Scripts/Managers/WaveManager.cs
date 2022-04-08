@@ -17,6 +17,8 @@ public class WaveManager : MonoBehaviour
     public int currentWave = 1;
     public GameObject reaper;
 
+    int numEnemy;
+
     static Random rnd = new Random();
 
     [System.Serializable]
@@ -66,6 +68,8 @@ public class WaveManager : MonoBehaviour
     {
         currentWave += 1;
         List<GameObject> waveEnemy = RandomizeEnemy(wave);
+        numEnemy = waveEnemy.Count;
+
         foreach (GameObject enemyToSpawn in waveEnemy.ToArray())
         {
             int spawnPointIndex = rnd.Next(0, 1000) % spawnPoints.Length;
@@ -115,11 +119,17 @@ public class WaveManager : MonoBehaviour
             if (enemy == null)
             {
                 currentEnemy.Remove(enemy);
+                numEnemy--;
             }
         }
     }
     public int getNumWaves()
     {
         return currentWave;
+    }
+
+    public int GetNumEnemy()
+    {
+        return numEnemy;
     }
 }
