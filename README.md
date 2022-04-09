@@ -52,6 +52,10 @@ Aplikasi ini merupakan suatu video game yang dibuat menggunakan Unity. Game ini 
 ![Normal Bullets](./screenshot/bullet.png)
 ![Diagonal Bullets 3](./screenshot/diagonalShot1.png)
 ![Diagonal Bullets 5](./screenshot/diagonalShot2.png)
+- Player Attribute Orb
+![Speed Orb](./screenshot/speedOrb.png)
+![Power Orb](./screenshot/powerOrb.png)
+![Health Orb](./screenshot/healthOrb.png)
 # Pembagian Kerja
 Isabella Handayani - 13519081
 - Additional Mobs - Skeleton
