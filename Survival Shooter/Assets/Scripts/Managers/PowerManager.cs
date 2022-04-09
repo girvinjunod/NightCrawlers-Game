@@ -15,7 +15,7 @@ public class PowerManager : MonoBehaviour
     // player = GameObject.FindGameObjectWithTag("Player");
     // playerShooting = player.GetComponent<PlayerShooting>();
     text = GetComponent<Text>();
-    power = 0;
+    power = 1;
   }
 
   // Update is called once per frame

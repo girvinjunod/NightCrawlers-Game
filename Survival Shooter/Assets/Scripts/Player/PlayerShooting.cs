@@ -7,9 +7,9 @@ public class PlayerShooting : MonoBehaviour
     public float range = 100f;
 
     public static int critChance = 0;
-    public static int bulletCount = 5;
+    public static int bulletCount = 1;
 
-    public GameObject bullets;
+    // public GameObject bullets;
     float timer;
     Ray shootRay;
     RaycastHit shootHit;
@@ -20,7 +20,12 @@ public class PlayerShooting : MonoBehaviour
     AudioSource gunAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
+    ObjectPooler objectPooler;
 
+
+    private void Start(){
+      objectPooler = ObjectPooler.Instance;
+    }
     void Awake()
     {
         shootableMask = LayerMask.GetMask("Shootable");
@@ -79,7 +84,8 @@ public class PlayerShooting : MonoBehaviour
             int index = bullet==0 ? 0 : bullet*2;
             // gunLine.SetPosition(index, transform.position);
 
-            Instantiate(bullets, transform.position, q * transform.rotation);
+            ObjectPooler.Instance.SpawnFromPool("Bullet", transform.position, q * transform.rotation);
+            // Instantiate(bullets, transform.position, q * transform.rotation);
             
             // if (Physics.Raycast(shootRay.origin,shootRay.direction, out shootHit, range, shootableMask))
             // {

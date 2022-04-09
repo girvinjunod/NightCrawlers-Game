@@ -67,7 +67,7 @@ MonoBehaviour:
   isRotating: 1
   isFloating: 0
   isScaling: 0
-  rotationAngle: {x: 0, y: 0, z: 10}
+  rotationAngle: {x: 10, y: 0, z: 10}
   rotationSpeed: 5
   floatSpeed: 0
   floatRate: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IPooledObject
 {
     public float speed = 100.0f;
     public int damage = 20;
@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
 
       bool isCrit = false;
     // Start is called before the first frame update
-    void Start()
+    public void OnObjectSpawn()
     {
         player = GameObject.FindGameObjectWithTag ("Player");
         playerShooting = player.GetComponentInChildren <PlayerShooting> ();      
@@ -36,6 +36,8 @@ public class Bullet : MonoBehaviour
         gunAudioArr = GetComponents<AudioSource>();
         critAudio = gunAudioArr[0];   
         bulletCritChance = PlayerShooting.critChance;     
+        hasHit = false;
+        timer = 0;
     }
 
     // Update is called once per frame
@@ -50,7 +52,8 @@ public class Bullet : MonoBehaviour
 
 		// Schedule for destruction if bullet never hits anything.
 		if (timer >= life) {
-      Destroy(gameObject);
+      // Destroy(gameObject);
+      gameObject.SetActive(false);
 		}
 
     velocity = transform.forward;
@@ -117,10 +120,12 @@ public class Bullet : MonoBehaviour
         {
 			envHit.ShowHit(hit.point);
         }
-      Destroy(gameObject);
+      // Destroy(gameObject);
+      gameObject.SetActive(false);
     }
 
     void DelayedDestroy() {
-		    Destroy(gameObject, 0.2f);
+		    // Destroy(gameObject, 0.2f);
+        gameObject.SetActive(false);
 	}
 }
