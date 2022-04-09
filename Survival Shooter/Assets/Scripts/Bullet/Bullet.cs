@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 100.0f;
     public int damage = 20;
+    public float life = 1.1f;
 
     float timer;
     	Vector3 velocity;
@@ -39,9 +40,9 @@ public class Bullet : MonoBehaviour
 		timer += Time.deltaTime;
 
 		// Schedule for destruction if bullet never hits anything.
-		// if (timer >= life) {
-		// 	Dissipate();
-		// }
+		if (timer >= life) {
+      Destroy(gameObject);
+		}
 
         velocity = transform.forward;
 		velocity.y = 0;
