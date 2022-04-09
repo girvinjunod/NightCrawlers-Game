@@ -16,26 +16,27 @@ public class PlayerShooting : MonoBehaviour
     int shootableMask;
     ParticleSystem gunParticles;
     LineRenderer gunLine;
-    AudioSource[] gunAudioArr;
     AudioSource gunAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
     ObjectPooler objectPooler;
 
 
-    private void Start(){
-      objectPooler = ObjectPooler.Instance;
+    private void Start()
+    {
+        objectPooler = ObjectPooler.Instance;
     }
     void Awake()
     {
         shootableMask = LayerMask.GetMask("Shootable");
         gunParticles = GetComponent<ParticleSystem>();
         gunLine = GetComponent<LineRenderer>();
-        gunAudioArr = GetComponents<AudioSource>();
-        gunAudio = gunAudioArr[0];
+        gunAudio = GetComponent<AudioSource>();
         gunLight = GetComponent<Light>();
 
         critChance = 0;
+        bulletCount = 1;
+        timeBetweenBullets = 0.5f;
     }
 
     void Update()
@@ -70,10 +71,11 @@ public class PlayerShooting : MonoBehaviour
 
         gunParticles.Stop();
         gunParticles.Play();
-        gunLine.positionCount = bulletCount*2;
+        gunLine.positionCount = bulletCount * 2;
         // gunLine.enabled = true;
 
-        for(int bullet = 0; bullet < bulletCount; bullet++){
+        for (int bullet = 0; bullet < bulletCount; bullet++)
+        {
 
             int factor = bulletCount == 5 ? 2 : (bulletCount == 3 ? 1 : 0);
             factor = bullet - factor;
@@ -81,12 +83,12 @@ public class PlayerShooting : MonoBehaviour
             Quaternion q = Quaternion.AngleAxis(yRot, Vector3.up);
             shootRay.origin = transform.position;
             shootRay.direction = q * transform.forward;
-            int index = bullet==0 ? 0 : bullet*2;
+            int index = bullet == 0 ? 0 : bullet * 2;
             // gunLine.SetPosition(index, transform.position);
 
             ObjectPooler.Instance.SpawnFromPool("Bullet", transform.position, q * transform.rotation);
             // Instantiate(bullets, transform.position, q * transform.rotation);
-            
+
             // if (Physics.Raycast(shootRay.origin,shootRay.direction, out shootHit, range, shootableMask))
             // {
             //     EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
@@ -128,5 +130,5 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    
+
 }
