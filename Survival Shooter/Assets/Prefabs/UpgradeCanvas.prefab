@@ -802,7 +802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Increase Fire Rate of Weapon
+  m_text: +30% Fire Rate Of Weapon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 46266f38bcbb19847a196e9582a4aea5, type: 2}
   m_sharedMaterial: {fileID: -8625983863857988015, guid: 46266f38bcbb19847a196e9582a4aea5, type: 2}
