@@ -127,9 +127,9 @@ public class PlayerShooting : MonoBehaviour
     }
     public void powerOrb()
     {
-        if (damagePerShot < 200)
+        if (PowerManager.power < 10)
         {
-            damagePerShot += 10;
+            damagePerShot += 5;
             PowerManager.power += 1;
         }
     }

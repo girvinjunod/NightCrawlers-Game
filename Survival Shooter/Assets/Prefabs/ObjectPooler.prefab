@@ -46,4 +46,4 @@ MonoBehaviour:
   pools:
   - tag: Bullet
     prefab: {fileID: 8946891882775703378, guid: d6c526ea9d76cdd468b8425ad07a3ded, type: 3}
-    size: 35
+    size: 50

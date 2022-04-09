@@ -107,10 +107,6 @@ public class UpgradeMenu : MonoBehaviour
         UpgradeOption1Counter.text = counter1 + "/" + maxCounter1;
         Debug.Log("Upgrade 1");
         PlayerShooting.bulletCount += 2;
-        if (playerShooting.damagePerShot >= 45)
-        {
-            playerShooting.damagePerShot -= 30;
-        }
         Resume();
     }
 

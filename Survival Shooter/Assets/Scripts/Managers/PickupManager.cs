@@ -31,11 +31,11 @@ public class PickupManager : MonoBehaviour
             usedSpawnPoints.Add(spawnPoints[spawnPointIndex].position);
             // RANDOM ALGORITHM
             int random = Random.Range(0, 3);
-            if (PowerManager.power >= 20){
+            if (PowerManager.power >= 10){
                 random = Random.Range(1,3);
                 // HANDLE MAX POWER, DONT SPAWN POWER ORB
             }
-            if (SpeedManager.speed >= 4){
+            if (SpeedManager.speed >= 10){
                 random = 2;
                 // HANDLE MAX SPEED, DONT SPAWN SPEED ORB
             }

@@ -89,8 +89,13 @@ public class PlayerHealth : MonoBehaviour
             HPBarManager.maxHealth += 20;
             healthSlider.value =  (Convert.ToSingle(HPBarManager.health)/Convert.ToSingle(HPBarManager.maxHealth)) * 100;
         }  else {
-            currentHealth += 20;
-            HPBarManager.health += 20;
+            if (HPBarManager.health + 20 > HPBarManager.maxHealth){
+              currentHealth = HPBarManager.maxHealth;
+              HPBarManager.health = HPBarManager.maxHealth;
+            } else {
+              currentHealth += 20;
+              HPBarManager.health += 20;
+            }
             healthSlider.value =  (Convert.ToSingle(HPBarManager.health)/Convert.ToSingle(HPBarManager.maxHealth)) * 100;
         }    
     }
