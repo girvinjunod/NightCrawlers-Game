@@ -38,6 +38,7 @@ public class Bullet : MonoBehaviour, IPooledObject
         bulletCritChance = PlayerShooting.critChance;     
         hasHit = false;
         timer = 0;
+        isCrit = false;
     }
 
     // Update is called once per frame
