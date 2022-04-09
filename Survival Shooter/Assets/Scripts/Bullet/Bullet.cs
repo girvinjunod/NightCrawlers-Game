@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour, IPooledObject
     bool hasHit = false;
     PlayerShooting playerShooting;
     GameObject player;
-    AudioSource critAudio;
+    // AudioSource critAudio;
 
     public int bulletCritChance = 0;
 
@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour, IPooledObject
         damage = playerShooting.damagePerShot;
         newPos = transform.position;
         oldPos = newPos;
-        critAudio = GetComponent<AudioSource>();
+        // critAudio = GetComponent<AudioSource>();
         bulletCritChance = PlayerShooting.critChance;
         hasHit = false;
         timer = 0;
@@ -108,7 +108,8 @@ public class Bullet : MonoBehaviour, IPooledObject
             if (rand < bulletCritChance)
             {
                 Debug.Log("Crit");
-                critAudio.Play();
+                // critAudio.Play();
+                playerShooting.playCritAudio();
                 isCrit = true;
             }
             if (isCrit)

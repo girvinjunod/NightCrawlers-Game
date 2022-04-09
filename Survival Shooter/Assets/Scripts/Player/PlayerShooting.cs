@@ -16,7 +16,9 @@ public class PlayerShooting : MonoBehaviour
     int shootableMask;
     ParticleSystem gunParticles;
     LineRenderer gunLine;
+    AudioSource[] gunAudioArr;
     AudioSource gunAudio;
+    AudioSource critAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
     ObjectPooler objectPooler;
@@ -31,7 +33,9 @@ public class PlayerShooting : MonoBehaviour
         shootableMask = LayerMask.GetMask("Shootable");
         gunParticles = GetComponent<ParticleSystem>();
         gunLine = GetComponent<LineRenderer>();
-        gunAudio = GetComponent<AudioSource>();
+        gunAudioArr = GetComponents<AudioSource>();
+        gunAudio = gunAudioArr[0];
+        critAudio = gunAudioArr[1];
         gunLight = GetComponent<Light>();
 
         critChance = 0;
@@ -128,6 +132,11 @@ public class PlayerShooting : MonoBehaviour
             damagePerShot += 10;
             PowerManager.power += 1;
         }
+    }
+
+    public void playCritAudio()
+    {
+        critAudio.Play();
     }
 
 
