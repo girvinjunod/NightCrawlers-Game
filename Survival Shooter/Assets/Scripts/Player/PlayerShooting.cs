@@ -56,7 +56,6 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
-        bool isCrit = false;
         timer = 0f;
 
 

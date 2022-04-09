@@ -23,6 +23,8 @@ public class Bullet : MonoBehaviour
       AudioSource critAudio;      
 
       public int bulletCritChance = 0;
+
+      bool isCrit = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,7 @@ public class Bullet : MonoBehaviour
         newPos = transform.position;
 		    oldPos = newPos;
         gunAudioArr = GetComponents<AudioSource>();
-        critAudio = gunAudioArr[1];   
+        critAudio = gunAudioArr[0];   
         bulletCritChance = PlayerShooting.critChance;     
     }
 
@@ -93,7 +95,7 @@ public class Bullet : MonoBehaviour
 		if (enemyHealth != null) {
 			// ... the enemy should take damage.
         int rand = Random.Range(0, 100);
-        if (rand < critChance)
+        if (rand < bulletCritChance)
         {
             critAudio.Play();
             isCrit = true;
@@ -101,12 +103,11 @@ public class Bullet : MonoBehaviour
         if (isCrit)
         {
             Debug.Log("Crit");
-            enemyHealth.TakeDamage(damagePerShot * 2, hit.point);
-
+            enemyHealth.TakeDamage(damage * 2, hit.point);
         }
         else
         {
-            enemyHealth.TakeDamage(damagePerShot, hit.point);
+            enemyHealth.TakeDamage(damage, hit.point);
         }      
 		}
 
