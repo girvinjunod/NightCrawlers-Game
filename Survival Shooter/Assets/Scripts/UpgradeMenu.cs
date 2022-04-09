@@ -30,7 +30,7 @@ public class UpgradeMenu : MonoBehaviour
     private int numUpgrades = 0;
     private int maxNumUpgrades = 6;
 
-    private int perTime = 10;
+    private int perTime = 20;
 
     GameObject player;
     PlayerShooting playerShooting;
@@ -39,8 +39,8 @@ public class UpgradeMenu : MonoBehaviour
     {
         // time = 0;
         // Time.timeScale = 0f;
-        player = GameObject.FindGameObjectWithTag ("Player");
-        playerShooting = player.GetComponentInChildren <PlayerShooting> ();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerShooting = player.GetComponentInChildren<PlayerShooting>();
     }
 
     // void OnEnable()
@@ -107,10 +107,6 @@ public class UpgradeMenu : MonoBehaviour
         UpgradeOption1Counter.text = counter1 + "/" + maxCounter1;
         Debug.Log("Upgrade 1");
         PlayerShooting.bulletCount += 2;
-        if (playerShooting.damagePerShot >= 45)
-        {
-            playerShooting.damagePerShot -= 30;
-        }
         Resume();
     }
 

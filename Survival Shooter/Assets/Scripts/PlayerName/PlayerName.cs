@@ -31,12 +31,14 @@ public class PlayerName : MonoBehaviour
         {
             playernameMenu.text = playernameUI.text;
             PlayerPrefs.SetString("PlayerName", playernameUI.text);
+            StateHolder.playerName = playernameUI.text;
         }
         else
         {
             // Debug.Log("Kosong");
             playernameMenu.text = "Player";
             PlayerPrefs.SetString("PlayerName", "Player");
+            StateHolder.playerName = "Player";
         }
     }
 }

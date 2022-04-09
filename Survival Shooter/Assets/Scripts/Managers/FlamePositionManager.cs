@@ -6,6 +6,6 @@ public class FlamePositionManager : MonoBehaviour
 {
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, 2, transform.position.z);
+        transform.localPosition = new Vector3((float) -0.13, (float) 3.63, (float) 3.13);
     }
 }

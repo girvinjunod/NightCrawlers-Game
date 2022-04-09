@@ -9,6 +9,7 @@ public class PlayerShooting : MonoBehaviour
     public static int critChance = 0;
     public static int bulletCount = 1;
 
+    // public GameObject bullets;
     float timer;
     Ray shootRay;
     RaycastHit shootHit;
@@ -20,7 +21,13 @@ public class PlayerShooting : MonoBehaviour
     AudioSource critAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
+    ObjectPooler objectPooler;
 
+
+    private void Start()
+    {
+        objectPooler = ObjectPooler.Instance;
+    }
     void Awake()
     {
         shootableMask = LayerMask.GetMask("Shootable");
@@ -32,6 +39,8 @@ public class PlayerShooting : MonoBehaviour
         gunLight = GetComponent<Light>();
 
         critChance = 0;
+        bulletCount = 1;
+        timeBetweenBullets = 0.5f;
     }
 
     void Update()
@@ -57,7 +66,6 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
-        bool isCrit = false;
         timer = 0f;
 
 
@@ -67,10 +75,11 @@ public class PlayerShooting : MonoBehaviour
 
         gunParticles.Stop();
         gunParticles.Play();
-        gunLine.positionCount = bulletCount*2;
-        gunLine.enabled = true;
+        gunLine.positionCount = bulletCount * 2;
+        // gunLine.enabled = true;
 
-        for(int bullet = 0; bullet < bulletCount; bullet++){
+        for (int bullet = 0; bullet < bulletCount; bullet++)
+        {
 
             int factor = bulletCount == 5 ? 2 : (bulletCount == 3 ? 1 : 0);
             factor = bullet - factor;
@@ -78,49 +87,57 @@ public class PlayerShooting : MonoBehaviour
             Quaternion q = Quaternion.AngleAxis(yRot, Vector3.up);
             shootRay.origin = transform.position;
             shootRay.direction = q * transform.forward;
-            int index = bullet==0 ? 0 : bullet*2;
-            gunLine.SetPosition(index, transform.position);
-            
-            if (Physics.Raycast(shootRay.origin,shootRay.direction, out shootHit, range, shootableMask))
-            {
-                EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
+            int index = bullet == 0 ? 0 : bullet * 2;
+            // gunLine.SetPosition(index, transform.position);
 
-                if (enemyHealth != null)
-                {
-                    int rand = Random.Range(0, 100);
-                    if (rand < critChance)
-                    {
-                        critAudio.Play();
-                        isCrit = true;
-                    }
-                    if (isCrit)
-                    {
-                        Debug.Log("Crit");
-                        enemyHealth.TakeDamage(damagePerShot * 2, shootHit.point);
+            ObjectPooler.Instance.SpawnFromPool("Bullet", transform.position, q * transform.rotation);
+            // Instantiate(bullets, transform.position, q * transform.rotation);
 
-                    }
-                    else
-                    {
-                        enemyHealth.TakeDamage(damagePerShot, shootHit.point);
-                    }
-                }
+            // if (Physics.Raycast(shootRay.origin,shootRay.direction, out shootHit, range, shootableMask))
+            // {
+            //     EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
 
-                gunLine.SetPosition(index + 1, shootHit.point);
-            }
-            else
-            {
-                gunLine.SetPosition(index + 1, shootRay.origin + shootRay.direction * range);
-            }
+            //     if (enemyHealth != null)
+            //     {
+            //         int rand = Random.Range(0, 100);
+            //         if (rand < critChance)
+            //         {
+            //             critAudio.Play();
+            //             isCrit = true;
+            //         }
+            //         if (isCrit)
+            //         {
+            //             Debug.Log("Crit");
+            //             enemyHealth.TakeDamage(damagePerShot * 2, shootHit.point);
+
+            //         }
+            //         else
+            //         {
+            //             enemyHealth.TakeDamage(damagePerShot, shootHit.point);
+            //         }
+            //     }
+
+            //     gunLine.SetPosition(index + 1, shootHit.point);
+            // }
+            // else
+            // {
+            //     gunLine.SetPosition(index + 1, shootRay.origin + shootRay.direction * range);
+            // }
         }
     }
     public void powerOrb()
     {
-        if (damagePerShot < 200)
+        if (PowerManager.power < 10)
         {
-            damagePerShot += 10;
+            damagePerShot += 5;
             PowerManager.power += 1;
         }
     }
 
-    
+    public void playCritAudio()
+    {
+        critAudio.Play();
+    }
+
+
 }
