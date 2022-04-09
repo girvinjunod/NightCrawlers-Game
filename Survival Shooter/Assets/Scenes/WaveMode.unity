@@ -1449,10 +1449,10 @@ MonoBehaviour:
   enemyType:
   - {fileID: 5790570666306380649, guid: 036af4fc6275afa4292108b7d657cc6b, type: 3}
   - {fileID: 100000, guid: 3688f3f3f312c984fa78e00c09819e6c, type: 3}
-  - {fileID: 259881794847915840, guid: 312b31977ed9b2d48a14849ebb8c7fb3, type: 3}
+  - {fileID: 960887336551986147, guid: 312b31977ed9b2d48a14849ebb8c7fb3, type: 3}
   - {fileID: 153412, guid: f264ab47e25d0374ba89abced0b94b2a, type: 3}
-  - {fileID: 2126450660889058159, guid: 5c0b94806b9cedd46baabd6b1bca7f17, type: 3}
-  boss: {fileID: 4005202741812708769, guid: fa77a6797831f5742b2de87e51b1d1c9, type: 3}
+  - {fileID: 4379938548217732610, guid: 5c0b94806b9cedd46baabd6b1bca7f17, type: 3}
+  boss: {fileID: 490469945147753512, guid: fa77a6797831f5742b2de87e51b1d1c9, type: 3}
   spawnPoints:
   - {fileID: 1135742251}
   - {fileID: 1776447911}
@@ -1460,7 +1460,7 @@ MonoBehaviour:
   - {fileID: 302741827}
   playerHealth: {fileID: 875225643}
   currentWave: 0
-  reaper: {fileID: 6596184353762128066, guid: 1f8bc68183497bc4ea6fab0c52af4ca3, type: 3}
+  reaper: {fileID: 1606262121613168644, guid: 1f8bc68183497bc4ea6fab0c52af4ca3, type: 3}
 --- !u!4 &700631261
 Transform:
   m_ObjectHideFlags: 0
