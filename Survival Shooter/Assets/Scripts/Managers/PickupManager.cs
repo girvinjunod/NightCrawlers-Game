@@ -30,18 +30,22 @@ public class PickupManager : MonoBehaviour
         if (!usedSpawnPoints.Contains(spawnPoints[spawnPointIndex].position)){                                  
             usedSpawnPoints.Add(spawnPoints[spawnPointIndex].position);
             // RANDOM ALGORITHM
-            int random = Random.Range(1, 3);
-            if (random == 0 && PowerManager.power < 200){
+            int random = Random.Range(0, 3);
+            if (PowerManager.power >= 20){
+                random = Random.Range(1,3);
+                // HANDLE MAX POWER, DONT SPAWN POWER ORB
+            }
+            if (SpeedManager.speed >= 4){
+                random = 2;
+                // HANDLE MAX SPEED, DONT SPAWN SPEED ORB
+            }
+            if (random == 0){
                 Instantiate(powerPickup, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-            } else {
-              random = Random.Range(1,2);
             }
-            if (random == 1 && SpeedManager.speed < 10){
+            else if (random == 1){
                 Instantiate(speedPickup, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
-            } else {
-              random = 2;
             }
-            if (random == 2 ){
+            else if (random == 2 ){
                 Instantiate(healthPickup, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);            
             }
         }

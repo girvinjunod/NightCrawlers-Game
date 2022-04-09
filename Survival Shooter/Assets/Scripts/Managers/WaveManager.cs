@@ -106,6 +106,7 @@ public class WaveManager : MonoBehaviour
         // Add Reaper
         if(wave.waveNumber == maxWave)
         {
+            randomEnemy.Clear();
             randomEnemy.Add(reaper);
         }
 
