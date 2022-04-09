@@ -11,7 +11,7 @@ public class SpeedManager : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
-        speed = 0f;
+        speed = 1f;
     }
 
     // Update is called once per frame

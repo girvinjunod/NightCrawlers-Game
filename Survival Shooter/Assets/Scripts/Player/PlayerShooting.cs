@@ -9,6 +9,7 @@ public class PlayerShooting : MonoBehaviour
     public static int critChance = 0;
     public static int bulletCount = 1;
 
+    // public GameObject bullets;
     float timer;
     Ray shootRay;
     RaycastHit shootHit;
@@ -17,10 +18,14 @@ public class PlayerShooting : MonoBehaviour
     LineRenderer gunLine;
     AudioSource[] gunAudioArr;
     AudioSource gunAudio;
-    AudioSource critAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
+    ObjectPooler objectPooler;
 
+
+    private void Start(){
+      objectPooler = ObjectPooler.Instance;
+    }
     void Awake()
     {
         shootableMask = LayerMask.GetMask("Shootable");
@@ -28,7 +33,6 @@ public class PlayerShooting : MonoBehaviour
         gunLine = GetComponent<LineRenderer>();
         gunAudioArr = GetComponents<AudioSource>();
         gunAudio = gunAudioArr[0];
-        critAudio = gunAudioArr[1];
         gunLight = GetComponent<Light>();
 
         critChance = 0;
@@ -57,7 +61,6 @@ public class PlayerShooting : MonoBehaviour
 
     void Shoot()
     {
-        bool isCrit = false;
         timer = 0f;
 
 
@@ -68,7 +71,7 @@ public class PlayerShooting : MonoBehaviour
         gunParticles.Stop();
         gunParticles.Play();
         gunLine.positionCount = bulletCount*2;
-        gunLine.enabled = true;
+        // gunLine.enabled = true;
 
         for(int bullet = 0; bullet < bulletCount; bullet++){
 
@@ -79,38 +82,41 @@ public class PlayerShooting : MonoBehaviour
             shootRay.origin = transform.position;
             shootRay.direction = q * transform.forward;
             int index = bullet==0 ? 0 : bullet*2;
-            gunLine.SetPosition(index, transform.position);
+            // gunLine.SetPosition(index, transform.position);
+
+            ObjectPooler.Instance.SpawnFromPool("Bullet", transform.position, q * transform.rotation);
+            // Instantiate(bullets, transform.position, q * transform.rotation);
             
-            if (Physics.Raycast(shootRay.origin,shootRay.direction, out shootHit, range, shootableMask))
-            {
-                EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
+            // if (Physics.Raycast(shootRay.origin,shootRay.direction, out shootHit, range, shootableMask))
+            // {
+            //     EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
 
-                if (enemyHealth != null)
-                {
-                    int rand = Random.Range(0, 100);
-                    if (rand < critChance)
-                    {
-                        critAudio.Play();
-                        isCrit = true;
-                    }
-                    if (isCrit)
-                    {
-                        Debug.Log("Crit");
-                        enemyHealth.TakeDamage(damagePerShot * 2, shootHit.point);
+            //     if (enemyHealth != null)
+            //     {
+            //         int rand = Random.Range(0, 100);
+            //         if (rand < critChance)
+            //         {
+            //             critAudio.Play();
+            //             isCrit = true;
+            //         }
+            //         if (isCrit)
+            //         {
+            //             Debug.Log("Crit");
+            //             enemyHealth.TakeDamage(damagePerShot * 2, shootHit.point);
 
-                    }
-                    else
-                    {
-                        enemyHealth.TakeDamage(damagePerShot, shootHit.point);
-                    }
-                }
+            //         }
+            //         else
+            //         {
+            //             enemyHealth.TakeDamage(damagePerShot, shootHit.point);
+            //         }
+            //     }
 
-                gunLine.SetPosition(index + 1, shootHit.point);
-            }
-            else
-            {
-                gunLine.SetPosition(index + 1, shootRay.origin + shootRay.direction * range);
-            }
+            //     gunLine.SetPosition(index + 1, shootHit.point);
+            // }
+            // else
+            // {
+            //     gunLine.SetPosition(index + 1, shootRay.origin + shootRay.direction * range);
+            // }
         }
     }
     public void powerOrb()

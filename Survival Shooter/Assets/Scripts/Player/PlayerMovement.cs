@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     public void speedOrb(){
       if (speed < 10f){
         speed += 0.5f;
-        SpeedManager.speed += 0.5f;
+        SpeedManager.speed += 1f;
       }
     }    
 
