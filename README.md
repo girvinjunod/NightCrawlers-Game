@@ -2,7 +2,7 @@
 Aplikasi ini merupakan suatu video game yang dibuat menggunakan Unity. Game ini dikembangkan sebagai lanjutan dari tutorial Unity Survival Shooter. Game dikembangkan lebih dengan menambahkan fitur-fitur seperti main menu, local scoreboard, game modes (Wave dan Endless), mobs-mobs baru, player attributes, weapon upgrades, pause menu, layar game over, dan lain-lain. 
 # Cara Kerja
 ### Dari Unity Editor
-- Buka program ini melalui Unity Editor, pastikan versi Unity Editor yang dipakai sama untuk menghindari permasalahan
+- Buka directory `Survival Shooter` dari program ini melalui Unity Editor, pastikan versi Unity Editor yang dipakai sama untuk menghindari permasalahan
 - Buka scene `Menu` lalu tekan tombol Play
 - Anda bisa juga melakukan Build dari Unity Editor lalu run hasil build tersebut
 # Library 
