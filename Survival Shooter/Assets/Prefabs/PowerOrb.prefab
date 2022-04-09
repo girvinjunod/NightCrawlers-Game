@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupType: 0
-  delay: 60
+  delay: 30
 --- !u!108 &7867049154054348920
 Light:
   m_ObjectHideFlags: 0
