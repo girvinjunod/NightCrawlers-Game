@@ -13,7 +13,7 @@ public class Pickup : MonoBehaviour
     protected PlayerShooting playerShooting;
     protected PlayerMovement playerMovement;
 
-    public float delay = 60f;
+    public float delay = 30f;
     // Start is called before the first frame update
     void Start()
     {
