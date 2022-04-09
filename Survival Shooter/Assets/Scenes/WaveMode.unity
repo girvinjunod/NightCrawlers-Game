@@ -3459,6 +3459,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5187729808643459689, guid: a9b042c890e3a7045b0b660332b2de46, type: 3}
+      propertyPath: bullets
+      value: 
+      objectReference: {fileID: 8946891882775703378, guid: d6c526ea9d76cdd468b8425ad07a3ded, type: 3}
+    - target: {fileID: 5187729808643459689, guid: a9b042c890e3a7045b0b660332b2de46, type: 3}
       propertyPath: timeBetweenBullets
       value: 0.5
       objectReference: {fileID: 0}
