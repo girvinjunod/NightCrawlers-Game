@@ -19,6 +19,10 @@ public class Bullet : MonoBehaviour
       bool hasHit = false;
       PlayerShooting playerShooting;
       GameObject player;
+      AudioSource[] gunAudioArr;
+      AudioSource critAudio;      
+
+      public int bulletCritChance = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +31,9 @@ public class Bullet : MonoBehaviour
         damage = playerShooting.damagePerShot;      
         newPos = transform.position;
 		    oldPos = newPos;
+        gunAudioArr = GetComponents<AudioSource>();
+        critAudio = gunAudioArr[1];   
+        bulletCritChance = PlayerShooting.critChance;     
     }
 
     // Update is called once per frame
@@ -44,7 +51,7 @@ public class Bullet : MonoBehaviour
       Destroy(gameObject);
 		}
 
-        velocity = transform.forward;
+    velocity = transform.forward;
 		velocity.y = 0;
 		velocity = velocity.normalized * speed;
 
@@ -61,10 +68,6 @@ public class Bullet : MonoBehaviour
 		    // Find the first valid hit
 		    for (int i = 0; i < hits.Length; i++) {
 		        RaycastHit hit = hits[i];
-
-				// if (ShouldIgnoreHit(hit)) {
-				// 	continue;
-				// }
 
 				// notify hit
 				OnHit(hit);
@@ -89,7 +92,22 @@ public class Bullet : MonoBehaviour
 		// If the EnemyHealth component exist...
 		if (enemyHealth != null) {
 			// ... the enemy should take damage.
-			enemyHealth.TakeDamage(damage, hit.point);
+        int rand = Random.Range(0, 100);
+        if (rand < critChance)
+        {
+            critAudio.Play();
+            isCrit = true;
+        }
+        if (isCrit)
+        {
+            Debug.Log("Crit");
+            enemyHealth.TakeDamage(damagePerShot * 2, hit.point);
+
+        }
+        else
+        {
+            enemyHealth.TakeDamage(damagePerShot, hit.point);
+        }      
 		}
 
 		EnvironmentHit envHit = hit.collider.GetComponent<EnvironmentHit>();

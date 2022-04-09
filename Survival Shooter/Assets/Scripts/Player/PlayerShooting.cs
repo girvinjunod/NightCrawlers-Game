@@ -18,7 +18,6 @@ public class PlayerShooting : MonoBehaviour
     LineRenderer gunLine;
     AudioSource[] gunAudioArr;
     AudioSource gunAudio;
-    AudioSource critAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
 
@@ -29,7 +28,6 @@ public class PlayerShooting : MonoBehaviour
         gunLine = GetComponent<LineRenderer>();
         gunAudioArr = GetComponents<AudioSource>();
         gunAudio = gunAudioArr[0];
-        critAudio = gunAudioArr[1];
         gunLight = GetComponent<Light>();
 
         critChance = 0;
