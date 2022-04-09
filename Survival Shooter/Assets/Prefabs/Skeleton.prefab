@@ -25763,7 +25763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b9d14572410594cb85d40eedfb150c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 300
+  startingHealth: 500
   currentHealth: 0
   sinkSpeed: 2.5
   scoreValue: 20
@@ -25778,9 +25778,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 8434b04884c414ac6b468e10945685e6, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f224f766616c3ea419df512c0e5cc645, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d566fdba32e92ba41a7f457dfcdbc733, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.28
   m_Pitch: 3
   Loop: 0
   Mute: 0

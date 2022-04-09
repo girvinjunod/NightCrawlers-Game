@@ -10,11 +10,16 @@ public class PlayerMovement : MonoBehaviour
     int floorMask;
     float camRayLength = 100f;
 
+    AudioSource[] playerAudioArr;
+    AudioSource orbPickupAudio;
+
     void Awake() {
         floorMask = LayerMask.GetMask("Floor");
         anim = GetComponent <Animator> ();
         playerRigidbody = GetComponent<Rigidbody>();
         speed = initialspeed;
+        playerAudioArr = GetComponents<AudioSource>();
+        orbPickupAudio = playerAudioArr[1];        
     }
 
     void FixedUpdate() {
@@ -53,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void speedOrb(){
+      orbPickupAudio.Play();
       if (speed < 10f){
         speed += 0.45f;
         SpeedManager.speed += 1f;

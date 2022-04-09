@@ -5,9 +5,6 @@ Aplikasi ini merupakan suatu video game yang dibuat menggunakan Unity. Game ini 
 - Buka program ini melalui Unity Editor, pastikan versi Unity Editor yang dipakai sama untuk menghindari permasalahan
 - Buka scene `Menu` lalu tekan tombol Play
 - Anda bisa juga melakukan Build dari Unity Editor lalu run hasil build tersebut
-### Dari Build
-- Buka directory build dari repository ini
-- Jalankan file `.exe` yang ada pada directory tersebut.
 # Library 
 | Nama     | Alasan |
 | ----------- | ----------- |
@@ -21,7 +18,44 @@ Aplikasi ini merupakan suatu video game yang dibuat menggunakan Unity. Game ini 
 
 
 # Screenshot Aplikasi
-
+- Main Menu
+![Main Menu](./screenshot/mainMenu.png)
+- Scoreboard
+![Scoreboard Menu](./screenshot/scoreboardMenu.png)
+![Scoreboard Menu Wave](./screenshot/scoreboardMenuWave.png)
+![Scoreboard Menu Endless](./screenshot/scoreboardMenuEndless.png)
+- Change Player Name
+![Player Name Menu](./screenshot/playerNameMenu.png)
+- Game Mode Menu
+![Game Mode Menu](./screenshot/gameModeMenu.png)
+- Endless Mode
+![Zen Mode](./screenshot/zenMode.png)
+- Wave Mode
+![Wave Mode](./screenshot/waveMode.png)
+- Bomber Mob (Ayam)
+![Mob Bomber](./screenshot/bomberMob1.png)
+![Mob Bomber](./screenshot/bomberMob2.png)
+- Skeleton Mob (Naga)
+![Mob Skeleton](./screenshot/skeletonMob.png)
+- Boss Mob (Kumbang Alien)
+![Mob Boss](./screenshot/bossMob.png)
+- Reaper Mob
+![Mob Reaper](./screenshot/reaperMob.png)
+- Game Over
+![Game Over](./screenshot/gameOver.png)
+- Result Screen
+![Result Screen Wave](./screenshot/resultScreenWave.png)
+![Result Screen Zen](./screenshot/resultScreenZen.png)
+- Upgrade Menu
+![Upgrade Menu](./screenshot/upgradeScreen.png)
+- Bullets
+![Normal Bullets](./screenshot/bullet.png)
+![Diagonal Bullets 3](./screenshot/diagonalShot1.png)
+![Diagonal Bullets 5](./screenshot/diagonalShot2.png)
+- Player Attribute Orb
+![Speed Orb](./screenshot/speedOrb.png)
+![Power Orb](./screenshot/powerOrb.png)
+![Health Orb](./screenshot/healthOrb.png)
 # Pembagian Kerja
 Isabella Handayani - 13519081
 - Additional Mobs - Skeleton

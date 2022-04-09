@@ -10,9 +10,13 @@ public class PickupManager : MonoBehaviour
     public Transform[] spawnPoints;
     public static List<Vector3> usedSpawnPoints = new List<Vector3>();
 
-
+    AudioSource[] orbAudioArr;
+    AudioSource orbSpawnAudio;
     void Start ()
     {
+        orbAudioArr = GetComponents<AudioSource>();
+        orbSpawnAudio = orbAudioArr[0];
+
         InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
 
@@ -40,12 +44,15 @@ public class PickupManager : MonoBehaviour
                 // HANDLE MAX SPEED, DONT SPAWN SPEED ORB
             }
             if (random == 0){
+                orbSpawnAudio.Play();
                 Instantiate(powerPickup, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
             }
             else if (random == 1){
+                orbSpawnAudio.Play();
                 Instantiate(speedPickup, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
             }
             else if (random == 2 ){
+                orbSpawnAudio.Play();
                 Instantiate(healthPickup, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);            
             }
         }

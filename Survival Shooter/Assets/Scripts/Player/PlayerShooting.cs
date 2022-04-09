@@ -19,6 +19,7 @@ public class PlayerShooting : MonoBehaviour
     AudioSource[] gunAudioArr;
     AudioSource gunAudio;
     AudioSource critAudio;
+    AudioSource orbPickupAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
     ObjectPooler objectPooler;
@@ -36,6 +37,7 @@ public class PlayerShooting : MonoBehaviour
         gunAudioArr = GetComponents<AudioSource>();
         gunAudio = gunAudioArr[0];
         critAudio = gunAudioArr[1];
+        orbPickupAudio = gunAudioArr[2];
         gunLight = GetComponent<Light>();
 
         critChance = 0;
@@ -127,6 +129,7 @@ public class PlayerShooting : MonoBehaviour
     }
     public void powerOrb()
     {
+        orbPickupAudio.Play();
         if (PowerManager.power < 10)
         {
             damagePerShot += 5;

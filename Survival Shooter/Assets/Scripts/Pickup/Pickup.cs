@@ -14,6 +14,7 @@ public class Pickup : MonoBehaviour
     protected PlayerMovement playerMovement;
 
     public float delay = 30f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class Pickup : MonoBehaviour
         playerHealth = player.GetComponent <PlayerHealth> ();
         playerShooting = player.GetComponentInChildren <PlayerShooting> ();
         playerMovement = player.GetComponentInChildren <PlayerMovement> ();
+     
         StartCoroutine(SelfDestruct());
         // enemyHealth = GetComponent<EnemyHealth>();
         // anim = GetComponent <Animator> ();
@@ -46,20 +48,20 @@ public class Pickup : MonoBehaviour
         if(playerInRange)
         {
             PickupManager.usedSpawnPoints.Remove(transform.position);            
-            Debug.Log(transform.position);
-        switch (pickupType) {
-          case PickupType.Power:
-            playerShooting.powerOrb();
-            break;
-            
-          case PickupType.Speed:
-            playerMovement.speedOrb();
-            break;
-            
-          case PickupType.Health:
-            playerHealth.healthOrb();
-            break;
-        }
+            // Debug.Log(transform.position);
+            switch (pickupType) {
+              case PickupType.Power:
+                playerShooting.powerOrb();
+                break;
+                
+              case PickupType.Speed:
+                playerMovement.speedOrb();
+                break;
+                
+              case PickupType.Health:
+                playerHealth.healthOrb();
+                break;
+            }
             Destroy(gameObject,0f);
         } 
     } 
