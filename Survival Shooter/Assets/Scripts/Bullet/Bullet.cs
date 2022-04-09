@@ -85,11 +85,18 @@ public class Bullet : MonoBehaviour
         hasHit = true;
         EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
 			
-			// If the EnemyHealth component exist...
-			if (enemyHealth != null) {
-				// ... the enemy should take damage.
-				enemyHealth.TakeDamage(damage, hit.point);
-			}
+		// If the EnemyHealth component exist...
+		if (enemyHealth != null) {
+			// ... the enemy should take damage.
+			enemyHealth.TakeDamage(damage, hit.point);
+		}
+
+		EnvironmentHit envHit = hit.collider.GetComponent<EnvironmentHit>();
+		// If the hitParticles component exist...
+		if(envHit != null)
+        {
+			envHit.ShowHit(hit.point);
+        }
       Destroy(gameObject);
     }
 
