@@ -15,7 +15,10 @@ public class PlayerHealth : MonoBehaviour
 
 
     Animator anim;
+
+    AudioSource[] playerAudioArr;
     AudioSource playerAudio;
+    AudioSource orbPickupAudio;
     PlayerMovement playerMovement;
     PlayerShooting playerShooting;
     bool isDead;                                                
@@ -25,7 +28,9 @@ public class PlayerHealth : MonoBehaviour
     void Awake()
     {
         anim = GetComponent<Animator>();
-        playerAudio = GetComponent<AudioSource>();
+        playerAudioArr = GetComponents<AudioSource>();
+        playerAudio = playerAudioArr[0];
+        orbPickupAudio = playerAudioArr[1];
         playerMovement = GetComponent<PlayerMovement>();
         playerShooting = GetComponentInChildren<PlayerShooting>();
 
@@ -83,6 +88,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void healthOrb(){
+        orbPickupAudio.Play();
         if (HPBarManager.maxHealth < 300){
             currentHealth += 20;
             HPBarManager.health += 20;
