@@ -1,5 +1,5 @@
 # Deskripsi Aplikasi
-Aplikasi ini merupakan suatu video game yang dibuat menggunakan Unity. Game ini dikembangkan sebagai lanjutan dari tutorial Unity Survival Shooter. Game dikembangkan lebih dengan menambahkan fitur-fitur seperti main menu, local scoreboard, game modes (Wave dan Endless), mobs-mobs baru, player attributes, weapon upgrades, pause menu, layar game over, dan lain-lain.
+Aplikasi ini merupakan suatu video game yang dibuat menggunakan Unity. Game ini dikembangkan sebagai lanjutan dari tutorial Unity Survival Shooter. Game dikembangkan lebih dengan menambahkan fitur-fitur seperti main menu, local scoreboard, game modes (Wave dan Endless), mobs-mobs baru, player attributes, weapon upgrades, pause menu, layar game over, dan lain-lain. 
 # Cara Kerja
 ### Dari Unity Editor
 - Buka program ini melalui Unity Editor, pastikan versi Unity Editor yang dipakai sama untuk menghindari permasalahan
@@ -16,6 +16,7 @@ Aplikasi ini merupakan suatu video game yang dibuat menggunakan Unity. Game ini 
 |[Asset Naga](https://assetstore.unity.com/packages/3d/characters/creatures/dragon-the-soul-eater-and-dragon-boar-77121)| Asset untuk mob tipe skeleton|
 |[Asset Kumbang Alien](https://assetstore.unity.com/packages/3d/characters/creatures/meshtint-free-polygonal-metalon-151383)| Asset untuk mob tipe boss|
 |[Asset Skull Mask](https://kaylousberg.itch.io/kaykit-animations)| Asset untuk mob tipe Reaper|
+|[Asset Pisang](https://assetstore.unity.com/packages/3d/food-pack-3d-microgames-add-ons-163295)| Asset untuk peluru|
 |[Unity Particle Pack](https://assetstore.unity.com/packages/essentials/tutorial-projects/unity-particle-pack-127325)|Particle Effect dari hal-hal yang ada di game seperti napas api naga|
 
 
@@ -35,6 +36,7 @@ Alexander - 13519090
 - Orbs
 - Weapon Upgrade - Diagonal Shot
 - Weapon Upgrade - Faster Weapon
+- Bullet
 - Object Pooling (Bonus)
 
 Girvin Junod - 13519096
