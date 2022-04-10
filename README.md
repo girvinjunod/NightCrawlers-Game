@@ -15,6 +15,7 @@ Aplikasi ini merupakan suatu video game yang dibuat menggunakan Unity. Game ini 
 |[Asset Skull Mask](https://kaylousberg.itch.io/kaykit-animations)| Asset untuk mob tipe Reaper|
 |[Asset Pisang](https://assetstore.unity.com/packages/3d/food-pack-3d-microgames-add-ons-163295)| Asset untuk peluru|
 |[Unity Particle Pack](https://assetstore.unity.com/packages/essentials/tutorial-projects/unity-particle-pack-127325)|Particle Effect dari hal-hal yang ada di game seperti napas api naga|
+|[Asset Orb](https://assetstore.unity.com/packages/3d/props/simple-gems-ultimate-animated-customizable-pack-73764)| Asset untuk orb|
 
 
 # Screenshot Aplikasi
